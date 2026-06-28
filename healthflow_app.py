@@ -115,6 +115,75 @@ HOSPITAL_MAP = {
     "Ballinasloe": ["Portiuncula University Hospital"],
 }
 
+# ── Google Maps links ─────────────────────────────────────────────────────────
+MAPS = {
+    "Mater Misericordiae University Hospital": "https://maps.google.com/?q=Mater+Misericordiae+University+Hospital+Dublin",
+    "St. James's Hospital": "https://maps.google.com/?q=St+James%27s+Hospital+Dublin",
+    "St. Vincent's University Hospital": "https://maps.google.com/?q=St+Vincent%27s+University+Hospital+Dublin",
+    "Beaumont Hospital": "https://maps.google.com/?q=Beaumont+Hospital+Dublin",
+    "Tallaght University Hospital": "https://maps.google.com/?q=Tallaght+University+Hospital+Dublin",
+    "Connolly Hospital Blanchardstown": "https://maps.google.com/?q=Connolly+Hospital+Blanchardstown+Dublin",
+    "Naas General Hospital": "https://maps.google.com/?q=Naas+General+Hospital+Kildare",
+    "CHI at Temple Street": "https://maps.google.com/?q=Children%27s+Health+Ireland+Temple+Street+Dublin",
+    "CHI at Crumlin": "https://maps.google.com/?q=Children%27s+Health+Ireland+Crumlin+Dublin",
+    "CHI at Tallaght": "https://maps.google.com/?q=Children%27s+Health+Ireland+Tallaght+Dublin",
+    "Cork University Hospital": "https://maps.google.com/?q=Cork+University+Hospital",
+    "Mercy University Hospital": "https://maps.google.com/?q=Mercy+University+Hospital+Cork",
+    "University Hospital Kerry": "https://maps.google.com/?q=University+Hospital+Kerry+Tralee",
+    "University Hospital Limerick": "https://maps.google.com/?q=University+Hospital+Limerick",
+    "Galway University Hospitals": "https://maps.google.com/?q=Galway+University+Hospital",
+    "Mayo University Hospital": "https://maps.google.com/?q=Mayo+University+Hospital+Castlebar",
+    "Sligo University Hospital": "https://maps.google.com/?q=Sligo+University+Hospital",
+    "Letterkenny University Hospital": "https://maps.google.com/?q=Letterkenny+University+Hospital+Donegal",
+    "UH Waterford": "https://maps.google.com/?q=University+Hospital+Waterford",
+    "Wexford General Hospital": "https://maps.google.com/?q=Wexford+General+Hospital",
+    "St Luke's General Hospital Kilkenny": "https://maps.google.com/?q=St+Luke%27s+General+Hospital+Kilkenny",
+    "Tipperary University Hospital": "https://maps.google.com/?q=Tipperary+University+Hospital+Clonmel",
+    "Our Lady of Lourdes Hospital": "https://maps.google.com/?q=Our+Lady+of+Lourdes+Hospital+Drogheda",
+    "Our Lady's Hospital Navan": "https://maps.google.com/?q=Our+Lady%27s+Hospital+Navan+Meath",
+    "Cavan General Hospital": "https://maps.google.com/?q=Cavan+General+Hospital",
+    "Midland Regional Hospital Portlaoise": "https://maps.google.com/?q=Midland+Regional+Hospital+Portlaoise",
+    "Midland Regional Hospital Tullamore": "https://maps.google.com/?q=Midland+Regional+Hospital+Tullamore",
+    "Midland Regional Hospital Mullingar": "https://maps.google.com/?q=Midland+Regional+Hospital+Mullingar",
+    "Portiuncula University Hospital": "https://maps.google.com/?q=Portiuncula+University+Hospital+Ballinasloe",
+}
+
+
+
+
+# ── Google Maps links ─────────────────────────────────────────────────────────
+GOOGLE_MAPS = {
+    "Mater Misericordiae University Hospital": "https://maps.google.com/?q=Mater+Misericordiae+University+Hospital+Dublin",
+    "St. James's Hospital":                   "https://maps.google.com/?q=St+James+Hospital+Dublin",
+    "St. Vincent's University Hospital":      "https://maps.google.com/?q=St+Vincents+University+Hospital+Dublin",
+    "Beaumont Hospital":                       "https://maps.google.com/?q=Beaumont+Hospital+Dublin",
+    "Tallaght University Hospital":            "https://maps.google.com/?q=Tallaght+University+Hospital+Dublin",
+    "Connolly Hospital Blanchardstown":        "https://maps.google.com/?q=Connolly+Hospital+Blanchardstown+Dublin",
+    "Naas General Hospital":                   "https://maps.google.com/?q=Naas+General+Hospital+Kildare",
+    "CHI at Temple Street":                    "https://maps.google.com/?q=Childrens+Health+Ireland+Temple+Street+Dublin",
+    "CHI at Crumlin":                          "https://maps.google.com/?q=Childrens+Health+Ireland+Crumlin+Dublin",
+    "CHI at Tallaght":                         "https://maps.google.com/?q=Childrens+Health+Ireland+Tallaght+Dublin",
+    "Cork University Hospital":                "https://maps.google.com/?q=Cork+University+Hospital",
+    "Mercy University Hospital":               "https://maps.google.com/?q=Mercy+University+Hospital+Cork",
+    "University Hospital Kerry":               "https://maps.google.com/?q=University+Hospital+Kerry+Tralee",
+    "University Hospital Limerick":            "https://maps.google.com/?q=University+Hospital+Limerick",
+    "Galway University Hospitals":             "https://maps.google.com/?q=Galway+University+Hospital",
+    "Mayo University Hospital":                "https://maps.google.com/?q=Mayo+University+Hospital+Castlebar",
+    "Sligo University Hospital":               "https://maps.google.com/?q=Sligo+University+Hospital",
+    "Letterkenny University Hospital":         "https://maps.google.com/?q=Letterkenny+University+Hospital+Donegal",
+    "UH Waterford":                            "https://maps.google.com/?q=University+Hospital+Waterford",
+    "Wexford General Hospital":                "https://maps.google.com/?q=Wexford+General+Hospital",
+    "St Luke's General Hospital Kilkenny":     "https://maps.google.com/?q=St+Lukes+General+Hospital+Kilkenny",
+    "Tipperary University Hospital":           "https://maps.google.com/?q=Tipperary+University+Hospital+Clonmel",
+    "Our Lady of Lourdes Hospital":            "https://maps.google.com/?q=Our+Lady+of+Lourdes+Hospital+Drogheda",
+    "Our Lady's Hospital Navan":               "https://maps.google.com/?q=Our+Ladys+Hospital+Navan",
+    "Cavan General Hospital":                  "https://maps.google.com/?q=Cavan+General+Hospital",
+    "Midland Regional Hospital Portlaoise":    "https://maps.google.com/?q=Midland+Regional+Hospital+Portlaoise",
+    "Midland Regional Hospital Tullamore":     "https://maps.google.com/?q=Midland+Regional+Hospital+Tullamore",
+    "Midland Regional Hospital Mullingar":     "https://maps.google.com/?q=Midland+Regional+Hospital+Mullingar",
+    "Portiuncula University Hospital":         "https://maps.google.com/?q=Portiuncula+University+Hospital+Ballinasloe",
+}
+
 # ── Age-based hospital filtering & guidance ───────────────────────────────────
 CHILDRENS_HOSPITALS = [
     "CHI at Temple Street",
@@ -131,23 +200,23 @@ def get_hospitals_for_age(county, age_group):
         note = ("⚠️ For children under 5, Children's Health Ireland (CHI) hospitals are "
                 "specifically equipped for paediatric emergencies. If CHI is not nearby, "
                 "proceed to your local ED and request paediatric support.")
-        icon = "👶"
+        icon = ""
     elif "5–15" in age_group:
         chi = [h for h in CHILDRENS_HOSPITALS]
         local_backup = [h for h in base if h not in chi]
         hospitals = chi + local_backup
-        note = ("🧒 For children aged 5–15, CHI hospitals have dedicated paediatric teams. "
+        note = (" For children aged 5–15, CHI hospitals have dedicated paediatric teams. "
                 "Your local ED can also treat children but CHI is preferred for serious cases.")
-        icon = "🧒"
+        icon = ""
     elif "65+" in age_group:
         hospitals = base
-        note = ("👴 As a senior patient, you may be eligible for priority assessment under "
+        note = (" As a senior patient, you may be eligible for priority assessment under "
                 "HSE older persons services. Ask about the Frailty Intervention Therapy Team (FITT) at your local ED.")
-        icon = "👴"
+        icon = ""
     else:
         hospitals = base
         note = None
-        icon = "🏥"
+        icon = ""
     if not hospitals:
         hospitals = base
     return hospitals, note, icon
@@ -358,7 +427,7 @@ if page == "🏥 My Hospitals":
 
     st.markdown(f"""
     <div class="hero">
-        <div class="hero-title">{age_icon} Your Hospitals in {sel_county}</div>
+        <div class="hero-title">Your Hospitals in {sel_county}</div>
         <div class="hero-sub">Showing hospitals relevant for <strong>{sel_age}</strong> patients in {sel_county}</div>
         <div>
             <span class="pill">🟢 Normal: {grn_c}</span>
@@ -371,6 +440,7 @@ if page == "🏥 My Hospitals":
     if age_note:
         st.info(age_note)
 
+    st.markdown("<div style='margin-top:16px'></div>", unsafe_allow_html=True)
     with st.expander("🔄 Change location or age group", expanded=False):
         col1, col2 = st.columns(2)
         with col1:
@@ -401,6 +471,7 @@ if page == "🏥 My Hospitals":
         cap_col = "#DC2626" if occ>=8 else "#D97706" if occ>=4 else "#16A34A"
         is_chi  = "CHI" in hosp
         badge_html = "<span style=\"background:#eff6ff;color:#1d4ed8;font-size:10px;font-weight:600;padding:2px 7px;border-radius:4px;margin-left:6px\">Children's</span>" if is_chi else "<span style=\"background:#EFF6FF;color:#2563EB;font-size:10px;font-weight:600;padding:2px 7px;border-radius:4px;margin-left:6px\">Public</span>"
+        maps_url = MAPS.get(hosp, f"https://maps.google.com/?q={hosp.replace(' ','+')}+Ireland")
         with cols[i % 2]:
             st.markdown(f"""
             <div class="hcard">
@@ -415,7 +486,13 @@ if page == "🏥 My Hospitals":
                     <span>Capacity</span><span>{cap_pct}%</span>
                 </div>
                 <div class="cap-bg"><div class="cap-fill" style="width:{cap_pct}%;background:{cap_col}"></div></div>
-                <div class="card-ft"><span>🕐 Live data</span><span></span></div>
+                <div class="card-ft">
+                    <span>🕐 Live data</span>
+                    <a href="{maps_url}" target="_blank"
+                       style="color:#0D9488;font-weight:600;text-decoration:none;font-size:12px">
+                        📍 Get directions →
+                    </a>
+                </div>
             </div>
             """, unsafe_allow_html=True)
 
