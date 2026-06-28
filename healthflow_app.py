@@ -644,7 +644,7 @@ elif page == "💊 Patient Advice":
     # Get recommendation
     st.markdown('<div class="sec-title">Get Your Personalised Recommendation</div>', unsafe_allow_html=True)
 
-    with st.expander("📍 Step 1 — Your location & insurance", expanded=True):
+    with st.expander("Step 1 — Your location", expanded=True):
         col1,col2 = st.columns(2)
         with col1:
             default_county = st.session_state.get("landing_county", list(HOSPITAL_MAP.keys())[0])
@@ -656,15 +656,12 @@ elif page == "💊 Patient Advice":
             age_idx = age_groups.index(default_age) if default_age in age_groups else 2
             patient_age = st.selectbox("Patient age group", age_groups, index=age_idx, key="pa_age")
         with col2:
-            insurance = st.selectbox("Health insurance", list(INSURANCE_MAP.keys()), key="pa_i")
-            ins_info  = INSURANCE_MAP[insurance]
-            clinics_html = f"<div style='font-size:12px;color:#0D9488;margin-top:6px'>✅ {' · '.join(ins_info['clinics'])}</div>" if ins_info["clinics"] else ""
-            st.markdown(f"""
+            st.markdown("""
             <div class="ins-card">
-                <div style="font-weight:600;color:{ins_info['colour']};margin-bottom:4px">{insurance}</div>
-                <div style="font-size:12px;color:#6b7280">{ins_info['benefit']}</div>
-                {clinics_html}
+                <div style="font-weight:600;color:#0D9488;margin-bottom:4px">Public HSE Patient</div>
+                <div style="font-size:12px;color:#6b7280">A&E visits are free with a valid GP referral letter. No insurance required.</div>
             </div>""", unsafe_allow_html=True)
+            insurance = "None / Public"
 
     st.markdown('<div style="color:#0D9488;font-size:11px;font-weight:700;letter-spacing:0.06em;margin:16px 0 4px 0">STEP 2 OF 2</div>', unsafe_allow_html=True)
     st.markdown('<div style="font-size:18px;font-weight:700;color:#0D2137;margin-bottom:6px">Why are you considering attending A&E?</div>', unsafe_allow_html=True)
