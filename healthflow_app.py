@@ -86,8 +86,8 @@ st.markdown("""
 .footer-bottom{text-align:center;font-size:12px;color:#64748B;
                margin-top:1.5rem;padding-top:1rem;border-top:1px solid #1e3a5f;}
 .stSelectbox label,.stTextInput label{font-weight:600;color:#374151;font-size:0.88rem;}
-.streamlit-expanderHeader{padding-left:12px!important;font-size:14px!important;font-weight:600!important;}
-details summary{padding:10px 14px!important;}
+.streamlit-expanderHeader{padding-left:12px!important;font-size:14px!important;font-weight:600!important;} summary svg{display:none!important;} [aria-label="arrow"]{display:none!important;}
+details summary{padding:10px 14px!important;} [data-testid="stCheckbox"] label span:first-child{display:none!important;}
 </style>
 """, unsafe_allow_html=True)
 
@@ -443,7 +443,8 @@ if page == "🏥 My Hospitals":
         st.info(age_note)
 
     st.markdown("<div style='margin-top:16px'></div>", unsafe_allow_html=True)
-    with st.expander("Change location or age group", expanded=False):
+    show_change = st.checkbox("Change location or age group")
+    if show_change:
         col1, col2 = st.columns(2)
         with col1:
             new_county = st.selectbox("County", list(HOSPITAL_MAP.keys()),
