@@ -443,7 +443,8 @@ if page == "🏥 My Hospitals":
         st.info(age_note)
 
     st.markdown("<div style='margin-top:16px'></div>", unsafe_allow_html=True)
-    show_change = st.checkbox("Change location or age group")
+    st.markdown("<div style='margin-bottom:8px'></div>", unsafe_allow_html=True)
+    show_change = st.toggle("📍 Change location or age group")
     if show_change:
         col1, col2 = st.columns(2)
         with col1:
