@@ -443,7 +443,7 @@ if page == "🏥 My Hospitals":
         st.info(age_note)
 
     st.markdown("<div style='margin-top:16px'></div>", unsafe_allow_html=True)
-    with st.expander("🔄 Change location or age group", expanded=False):
+  with st.expander("Change location or age group", expanded=False):
         col1, col2 = st.columns(2)
         with col1:
             new_county = st.selectbox("County", list(HOSPITAL_MAP.keys()),
