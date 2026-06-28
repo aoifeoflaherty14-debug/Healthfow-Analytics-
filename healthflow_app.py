@@ -207,12 +207,12 @@ def get_hospitals_for_age(county, age_group):
         chi = [h for h in CHILDRENS_HOSPITALS]
         local_backup = [h for h in base if h not in chi]
         hospitals = chi + local_backup
-        note = (" For children aged 5–15, CHI hospitals have dedicated paediatric teams. "
+        note = ("🧒 For children aged 5–15, CHI hospitals have dedicated paediatric teams. "
                 "Your local ED can also treat children but CHI is preferred for serious cases.")
         icon = ""
     elif "65+" in age_group:
         hospitals = base
-        note = (" As a senior patient, you may be eligible for priority assessment under "
+        note = ("👴 As a senior patient, you may be eligible for priority assessment under "
                 "HSE older persons services. Ask about the Frailty Intervention Therapy Team (FITT) at your local ED.")
         icon = ""
     else:
@@ -400,7 +400,7 @@ with st.sidebar:
     if st.session_state.get("page_override"):
         default_page = st.session_state.pop("page_override")
     else:
-        default_page = "🏥 ED Status"
+        default_page = "🏥 My Hospitals"
 
     nav_options = ["🏥 My Hospitals","🗺️ All ED Status","💊 Patient Advice","📊 Analytics","🔍 EDA","📈 Predictive","🧠 Prescriptive","📞 Contact"]
     page = st.radio("", nav_options,
@@ -442,7 +442,7 @@ if page == "🏥 My Hospitals":
     if age_note:
         st.info(age_note)
 
-st.markdown("<div style='margin-top:16px'></div>", unsafe_allow_html=True)
+    st.markdown("<div style='margin-top:16px'></div>", unsafe_allow_html=True)
     with st.expander("Change location or age group", expanded=False):
         col1, col2 = st.columns(2)
         with col1:
