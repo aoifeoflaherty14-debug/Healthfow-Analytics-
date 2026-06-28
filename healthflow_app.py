@@ -86,6 +86,8 @@ st.markdown("""
 .footer-bottom{text-align:center;font-size:12px;color:#64748B;
                margin-top:1.5rem;padding-top:1rem;border-top:1px solid #1e3a5f;}
 .stSelectbox label,.stTextInput label{font-weight:600;color:#374151;font-size:0.88rem;}
+.streamlit-expanderHeader{padding-left:12px!important;font-size:14px!important;font-weight:600!important;}
+details summary{padding:10px 14px!important;}
 </style>
 """, unsafe_allow_html=True)
 
