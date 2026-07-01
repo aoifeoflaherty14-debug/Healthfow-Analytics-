@@ -28,96 +28,99 @@ st.markdown("""
 /* Hero */
 .hero{background:linear-gradient(135deg,#0D9488 0%,#0a7a70 60%,#0D2137 100%);
       padding:2rem 1.5rem;margin-bottom:1.5rem;}
-.hero-title{font-size:22px;font-weight:700;color:white;margin-bottom:6px;line-height:1.3;}
-.hero-sub{font-size:13px;color:rgba(255,255,255,0.85);margin-bottom:14px;line-height:1.5;}
-.pill{display:inline-flex;align-items:center;gap:5px;
+.hero-title{font-size:28px;font-weight:700;color:white;margin-bottom:8px;line-height:1.3;}
+.hero-sub{font-size:16px;color:rgba(255,255,255,0.88);margin-bottom:16px;line-height:1.6;}
+.pill{display:inline-flex;align-items:center;gap:6px;
       background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.25);
-      color:white;padding:4px 10px;border-radius:20px;font-size:12px;font-weight:500;
-      margin-right:6px;margin-bottom:6px;}
+      color:white;padding:6px 14px;border-radius:20px;font-size:15px;font-weight:500;
+      margin-right:8px;margin-bottom:8px;}
 
 /* Nav */
 .nav-bar{background:white;padding:12px 1rem;border-bottom:1px solid #E2E8F0;
          display:flex;align-items:center;gap:8px;overflow-x:auto;
          position:sticky;top:0;z-index:999;flex-wrap:wrap;}
-.nav-logo{font-size:15px;font-weight:700;color:#0D2137;white-space:nowrap;margin-right:12px;}
+.nav-logo{font-size:17px;font-weight:700;color:#0D2137;white-space:nowrap;margin-right:12px;}
 .nav-logo span{color:#0D9488;}
 
 /* Hospital card */
-.hcard{background:white;border-radius:12px;padding:16px;border:1px solid #E2E8F0;
-       box-shadow:0 1px 3px rgba(0,0,0,0.05);margin-bottom:12px;position:relative;
+.hcard{background:white;border-radius:12px;padding:20px;border:1px solid #E2E8F0;
+       box-shadow:0 1px 3px rgba(0,0,0,0.05);margin-bottom:14px;position:relative;
        width:100%;}
-.hcard-name{font-size:14px;font-weight:700;color:#0D2137;margin-bottom:3px;padding-right:20px;line-height:1.3;}
-.hcard-loc{font-size:11px;color:#64748B;margin-bottom:10px;}
-.tdot{width:12px;height:12px;border-radius:50%;position:absolute;top:16px;right:16px;flex-shrink:0;}
-.sbadge{display:block;padding:5px 10px;border-radius:6px;font-size:12px;
-        font-weight:600;text-align:center;margin-bottom:10px;}
+.hcard-name{font-size:17px;font-weight:700;color:#0D2137;margin-bottom:4px;padding-right:24px;line-height:1.3;}
+.hcard-loc{font-size:14px;color:#64748B;margin-bottom:12px;}
+.tdot{width:14px;height:14px;border-radius:50%;position:absolute;top:20px;right:20px;flex-shrink:0;}
+.sbadge{display:block;padding:8px 12px;border-radius:6px;font-size:15px;
+        font-weight:700;text-align:center;margin-bottom:12px;}
 .s-red{background:#FEE2E2;color:#DC2626;}
 .s-amber{background:#FEF9C3;color:#B45309;}
 .s-green{background:#DCFCE7;color:#15803D;}
-.stat-row{display:flex;justify-content:space-between;font-size:12px;margin-bottom:4px;}
-.stat-lbl{color:#64748B;}.stat-val{font-weight:600;color:#0D2137;}
-.cap-bg{height:5px;background:#E2E8F0;border-radius:10px;overflow:hidden;margin:6px 0 8px;}
+.stat-row{display:flex;justify-content:space-between;font-size:15px;margin-bottom:6px;}
+.stat-lbl{color:#64748B;}.stat-val{font-weight:700;color:#0D2137;}
+.cap-bg{height:7px;background:#E2E8F0;border-radius:10px;overflow:hidden;margin:8px 0 10px;}
 .cap-fill{height:100%;border-radius:10px;}
-.maps-btn{display:block;margin-top:10px;background:#0D9488;color:white;
-          text-align:center;padding:8px 12px;border-radius:8px;
-          font-size:12px;font-weight:600;text-decoration:none;width:100%;}
+.maps-btn{display:block;margin-top:12px;background:#0D9488;color:white;
+          text-align:center;padding:12px 16px;border-radius:8px;
+          font-size:15px;font-weight:700;text-decoration:none;width:100%;}
 
 /* Section */
-.sec-title{font-size:16px;font-weight:700;color:#0D2137;margin:1.2rem 0 0.8rem;}
+.sec-title{font-size:20px;font-weight:700;color:#0D2137;margin:1.4rem 0 1rem;}
 
 /* Advice cards */
-.advice-card{background:white;border-radius:12px;padding:16px;
-             border:1px solid #E2E8F0;margin-bottom:12px;}
-.rec-card{background:white;border-radius:12px;padding:18px;
-          border:1px solid #E2E8F0;box-shadow:0 2px 6px rgba(0,0,0,0.06);margin-top:14px;}
-.ins-card{background:white;border-radius:10px;padding:12px 14px;
-          border:1.5px solid #E2E8F0;margin-bottom:8px;}
+.advice-card{background:white;border-radius:12px;padding:18px;
+             border:1px solid #E2E8F0;margin-bottom:14px;}
+.rec-card{background:white;border-radius:12px;padding:22px;
+          border:1px solid #E2E8F0;box-shadow:0 2px 6px rgba(0,0,0,0.06);margin-top:16px;}
+.ins-card{background:white;border-radius:10px;padding:16px 18px;
+          border:1.5px solid #E2E8F0;margin-bottom:10px;}
 .update-card{background:#FFFBEB;border:1px solid #FDE68A;border-radius:12px;
-             padding:16px;margin-bottom:12px;}
+             padding:18px;margin-bottom:14px;}
 .uvc-card{background:linear-gradient(135deg,#0D9488,#0f766e);
-          border-radius:12px;padding:16px;margin-bottom:12px;color:white;}
-.important-badge{background:#F59E0B;color:white;font-size:10px;font-weight:700;
-                 padding:2px 7px;border-radius:4px;display:inline-block;margin-bottom:8px;}
-.crit-box{background:#FFF1F2;border:1px solid #FECDD3;border-radius:12px;padding:16px;margin-bottom:12px;}
-.crit-badge{background:#DC2626;color:white;font-size:10px;font-weight:700;
-            padding:3px 8px;border-radius:4px;}
+          border-radius:12px;padding:18px;margin-bottom:14px;color:white;}
+.important-badge{background:#F59E0B;color:white;font-size:13px;font-weight:700;
+                 padding:4px 10px;border-radius:4px;display:inline-block;margin-bottom:10px;}
+.crit-box{background:#FFF1F2;border:1px solid #FECDD3;border-radius:12px;padding:18px;margin-bottom:14px;}
+.crit-badge{background:#DC2626;color:white;font-size:13px;font-weight:700;
+            padding:4px 10px;border-radius:4px;}
 .crit-item{background:white;border:1px solid #FECDD3;border-radius:8px;
-           padding:10px;margin-top:8px;display:flex;gap:10px;}
-.crit-num{color:#DC2626;font-weight:700;font-size:12px;flex-shrink:0;}
-.crit-name{font-size:12px;font-weight:600;color:#0D2137;}
-.crit-sub{font-size:11px;color:#64748B;}
+           padding:12px;margin-top:10px;display:flex;gap:12px;}
+.crit-num{color:#DC2626;font-weight:700;font-size:15px;flex-shrink:0;}
+.crit-name{font-size:15px;font-weight:600;color:#0D2137;}
+.crit-sub{font-size:13px;color:#64748B;}
 
 /* Resources */
-.resource-card{background:white;border-radius:12px;padding:16px;
-               border:1px solid #E2E8F0;margin-bottom:12px;}
-.resource-title{font-size:14px;font-weight:700;color:#0D2137;margin-bottom:6px;}
-.resource-desc{font-size:12px;color:#64748B;line-height:1.5;margin-bottom:8px;}
-.resource-link{color:#0D9488;font-size:12px;font-weight:600;text-decoration:none;}
+.resource-card{background:white;border-radius:12px;padding:18px;
+               border:1px solid #E2E8F0;margin-bottom:14px;}
+.resource-title{font-size:17px;font-weight:700;color:#0D2137;margin-bottom:8px;}
+.resource-desc{font-size:15px;color:#64748B;line-height:1.6;margin-bottom:10px;}
+.resource-link{color:#0D9488;font-size:15px;font-weight:600;text-decoration:none;}
 
 /* Contact */
-.contact-card{background:white;border-radius:12px;padding:16px;
-              border:1px solid #E2E8F0;margin-bottom:12px;text-align:center;}
-.contact-num{font-size:20px;font-weight:700;color:#DC2626;}
-.call999-bar{background:#DC2626;padding:16px;border-radius:12px;
-             margin-bottom:16px;text-align:center;}
+.contact-card{background:white;border-radius:12px;padding:18px;
+              border:1px solid #E2E8F0;margin-bottom:14px;text-align:center;}
+.contact-num{font-size:24px;font-weight:700;color:#DC2626;}
+.call999-bar{background:#DC2626;padding:18px;border-radius:12px;
+             margin-bottom:18px;text-align:center;}
 
 /* Footer */
 .footer{background:#0D2137;padding:1.5rem;margin-top:2rem;border-radius:12px;
-        font-size:12px;color:#94A3B8;text-align:center;line-height:1.8;}
+        font-size:14px;color:#94A3B8;text-align:center;line-height:1.8;}
 
 /* Streamlit overrides */
-.stSelectbox label,.stTextInput label{font-weight:600;color:#374151;font-size:13px!important;}
-.stRadio label{font-size:13px!important;}
+.stSelectbox label,.stTextInput label{font-weight:600;color:#374151;font-size:16px!important;}
+.stRadio label{font-size:16px!important;}
 div[data-testid="stRadio"] > label{font-weight:600;color:#374151;}
-.stButton button{border-radius:8px!important;font-weight:600!important;font-size:13px!important;}
+.stButton button{border-radius:8px!important;font-weight:700!important;font-size:16px!important;padding:10px 20px!important;}
 details summary{list-style:none!important;}
 details summary::-webkit-details-marker{display:none!important;}
+p, div, span, li{font-size:15px;line-height:1.7;}
 
 @media(max-width:768px){
-    .hero-title{font-size:18px;}
+    .hero-title{font-size:22px;}
     .hero{padding:1.5rem 1rem;}
-    .hcard-name{font-size:13px;}
-    .nav-logo{font-size:13px;}
+    .hcard-name{font-size:16px;}
+    .nav-logo{font-size:15px;}
+    .stat-row{font-size:14px;}
+    .sbadge{font-size:14px;}
 }
 </style>
 """, unsafe_allow_html=True)
@@ -189,15 +192,19 @@ def rag_meta(status):
 
 def get_hospitals_for_age(county, age):
     all_hosps = HOSPITAL_MAP.get(county, [])
-    if "Under 5" in age or "5–15" in age:
-        chi = [h for h in all_hosps if "CHI" in h]
+    if "Under 5" in age or "5" in age and "15" in age:
+        chi    = [h for h in all_hosps if "CHI" in h]
         others = [h for h in all_hosps if "CHI" not in h]
-        note = "Children's Health Ireland (CHI) hospitals are specifically equipped for paediatric emergencies. CHI hospitals are listed first."
+        note   = "Children's Health Ireland (CHI) hospitals are specifically equipped for paediatric emergencies. CHI hospitals are listed first."
         return chi + others, note
     elif "65+" in age:
-        note = "All hospitals listed. Ask about the FITT (Frailty Intervention Therapy Team) service when you arrive."
-        return all_hosps, note
-    return all_hosps, None
+        adult_hosps = [h for h in all_hosps if "CHI" not in h]
+        note = "All adult hospitals listed. Ask about the FITT (Frailty Intervention Therapy Team) service when you arrive."
+        return adult_hosps, note
+    else:
+        # Adults and young adults — never show CHI hospitals
+        adult_hosps = [h for h in all_hosps if "CHI" not in h]
+        return adult_hosps, None
 
 def get_pathway(occ, urgency_type):
     if urgency_type == "life":
@@ -231,9 +238,32 @@ def load_synthetic():
     df["occupancy_rate_pct"] = pd.to_numeric(df["occupancy_rate_pct"], errors="coerce").fillna(0)
     return df
 
+@st.cache_data
+def load_gp():
+    try:
+        return pd.read_csv(
+            "https://raw.githubusercontent.com/125109486-dev/Health-Flow-Datasets-Code/refs/heads/main/gp_out_of_hours.csv",
+            encoding="latin-1"
+        )
+    except Exception:
+        return pd.DataFrame()
+
+@st.cache_data
+def load_miu():
+    try:
+        return pd.read_csv(
+            "https://raw.githubusercontent.com/125109486-dev/Health-Flow-Datasets-Code/refs/heads/main/minor_injury_units.csv",
+            encoding="latin-1"
+        )
+    except Exception:
+        return pd.DataFrame()
+
+
 master    = load_master()
 synthetic = load_synthetic()
 latest_syn = synthetic.sort_values("date").groupby("Hospital").last().reset_index()
+gp_df  = load_gp()
+miu_df = load_miu()
 
 def get_hosp_data(hospital_name):
     row = master[master["Hospital"].str.lower().str.contains(hospital_name.lower().split()[0], na=False)]
@@ -682,6 +712,76 @@ elif page == "Resources":
                   border:2px solid #0D9488;margin-top:8px">
             Learn More on HSE.ie
         </a>""", unsafe_allow_html=True)
+
+
+    # GP Out of Hours
+    st.markdown('<div class="sec-title">GP Out-of-Hours Services Near You</div>', unsafe_allow_html=True)
+
+    res_county = st.session_state.get("landing_county", None)
+    if not res_county:
+        res_county = st.selectbox(
+            "Select your county to see local services",
+            [""] + sorted(["Carlow","Cavan","Clare","Cork","Donegal","Dublin","Galway",
+                "Kerry","Kildare","Kilkenny","Laois","Leitrim","Limerick",
+                "Longford","Louth","Mayo","Meath","Monaghan","Offaly",
+                "Roscommon","Sligo","Tipperary","Waterford","Westmeath","Wexford","Wicklow"]),
+            key="resources_county"
+        )
+    else:
+        st.markdown(
+            f"<div style='background:#CCFBF1;border:1px solid #0D9488;border-radius:8px;"
+            f"padding:12px 16px;margin-bottom:1rem;font-size:15px;color:#0D2137;'>"
+            f"Showing services for <strong>{res_county}</strong></div>",
+            unsafe_allow_html=True
+        )
+
+    if not gp_df.empty and res_county:
+        county_gp = gp_df[gp_df["county"].str.lower() == res_county.lower()]
+        if len(county_gp) > 0:
+            for _, row in county_gp.iterrows():
+                st.markdown(
+                    f"<div class='resource-card'>"
+                    f"<div class='resource-title'>{row['name']}</div>"
+                    f"<div class='resource-desc'>{row['address']}</div>"
+                    f"<div style='font-size:14px;color:#374151;'>{row['hours']} &nbsp;·&nbsp; {row['days']}</div>"
+                    f"</div>",
+                    unsafe_allow_html=True
+                )
+        else:
+            st.warning(f"No GP out-of-hours service found for {res_county}. Call 1850 24 1850 (HSE Live) for your nearest service.")
+    else:
+        st.info("Select your county above to see local GP out-of-hours services.")
+
+    # Minor Injury Units
+    st.markdown('<div class="sec-title">Minor Injury Units Near You</div>', unsafe_allow_html=True)
+
+    if not miu_df.empty and res_county:
+        county_miu = miu_df[miu_df["county"].str.lower() == res_county.lower()]
+        if len(county_miu) > 0:
+            cols = st.columns(min(len(county_miu), 2))
+            for i, (_, row) in enumerate(county_miu.iterrows()):
+                with cols[i % 2]:
+                    st.markdown(
+                        f"<div class='resource-card'>"
+                        f"<div class='resource-title'>{row['name']}</div>"
+                        f"<div class='resource-desc'>{row['address']}</div>"
+                        f"<div style='font-size:14px;color:#374151;margin-bottom:3px;'>{row['hours']}</div>"
+                        f"<div style='font-size:14px;color:#374151;margin-bottom:3px;'>{row['days']}</div>"
+                        f"<div style='font-size:14px;color:#0D9488;font-weight:600;'>Ages: {row['ages']}</div>"
+                        f"</div>",
+                        unsafe_allow_html=True
+                    )
+        else:
+            st.markdown(
+                f"<div style='background:#FEF9C3;border:1px solid #FDE68A;border-radius:8px;"
+                f"padding:14px;font-size:15px;color:#374151;'>"
+                f"No Minor Injury Unit in <strong>{res_county}</strong>. "
+                f"See <a href='https://www.hse.ie/eng/services/list/3/injuryunits/' "
+                f"target='_blank' style='color:#0D9488;'>HSE Injury Units</a> for the full national list.</div>",
+                unsafe_allow_html=True
+            )
+    else:
+        st.info("Select your county above to see local Minor Injury Units.")
 
     # Mental health
     st.markdown('<div class="sec-title">Mental Health Support</div>', unsafe_allow_html=True)
