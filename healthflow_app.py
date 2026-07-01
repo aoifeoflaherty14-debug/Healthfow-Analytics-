@@ -564,24 +564,126 @@ elif page == "Resources":
         <div class="hero-sub">Useful information and links to help you navigate the Irish healthcare system</div>
     </div>""", unsafe_allow_html=True)
 
-    st.markdown('<div class="sec-title">Care Pathway Options</div>', unsafe_allow_html=True)
-    pathways = [
-        ("Pharmacy","For minor self-limiting conditions — UTIs, cold sores, hay fever, contraception. No appointment needed.","https://www.hse.ie/eng/health/az/p/pharmacy-services/"),
-        ("GP / Family Doctor","For non-emergency conditions requiring diagnosis or prescription. Contact your GP during office hours.","https://www.hse.ie/eng/services/list/3/primarycare/"),
-        ("GP Out-of-Hours","When your GP is closed. ShanDoc: 1850 777 911. Available evenings, weekends, and bank holidays.","https://www.hse.ie/eng/services/list/3/primarycare/outofhours.html"),
-        ("Minor Injury Unit","For sprains, minor fractures, cuts, and burns that are not life-threatening. No GP referral needed.","https://www.hse.ie/eng/services/list/3/acutehospitals/"),
-        ("Urgent Virtual Care (UVC)","Video consultation with a doctor or nurse. Available 24/7. Suitable for moderate non-emergency conditions.","https://www.hse.ie/eng/"),
-        ("A&E / Emergency Department","For life-threatening emergencies only. If in doubt, call 999 first.","https://www.hse.ie/eng/services/list/3/acutehospitals/"),
+    # Where Should I Go
+    st.markdown("""
+    <div style="background:white;border-radius:12px;padding:28px 24px;margin-bottom:16px;border:1px solid #E2E8F0">
+        <div style="font-size:22px;font-weight:700;color:#0D2137;margin-bottom:8px">Where Should I Go?</div>
+        <div style="font-size:13px;color:#64748B;margin-bottom:24px">A quick guide to choosing the right care for your situation</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;border-top:1px solid #E2E8F0;padding-top:24px">
+            <div style="text-align:center;padding:0 16px;border-right:1px solid #E2E8F0">
+                <div style="width:56px;height:56px;background:#DCFCE7;border-radius:50%;
+                            display:flex;align-items:center;justify-content:center;
+                            margin:0 auto 14px auto;font-size:22px">💊</div>
+                <div style="color:#16A34A;font-size:10px;font-weight:700;letter-spacing:0.08em;margin-bottom:8px">STEP 1 — TRY FIRST</div>
+                <div style="font-size:16px;font-weight:700;color:#0D2137;margin-bottom:10px">Your Pharmacist</div>
+                <div style="font-size:12px;color:#64748B;line-height:1.6">
+                    For UTIs, cold sores, hay fever, shingles, minor skin conditions, and more — no appointment needed.
+                </div>
+            </div>
+            <div style="text-align:center;padding:0 16px;border-right:1px solid #E2E8F0">
+                <div style="width:56px;height:56px;background:#EFF6FF;border-radius:50%;
+                            display:flex;align-items:center;justify-content:center;
+                            margin:0 auto 14px auto;font-size:22px">✔</div>
+                <div style="color:#2563EB;font-size:10px;font-weight:700;letter-spacing:0.08em;margin-bottom:8px">STEP 2 — IF NEEDED</div>
+                <div style="font-size:16px;font-weight:700;color:#0D2137;margin-bottom:10px">Your GP</div>
+                <div style="font-size:12px;color:#64748B;line-height:1.6">
+                    For illness requiring diagnosis, ongoing conditions, referrals, or anything your pharmacist cannot manage.
+                </div>
+            </div>
+            <div style="text-align:center;padding:0 16px">
+                <div style="width:56px;height:56px;background:#FFF1F2;border-radius:50%;
+                            display:flex;align-items:center;justify-content:center;
+                            margin:0 auto 14px auto;font-size:22px">📞</div>
+                <div style="color:#DC2626;font-size:10px;font-weight:700;letter-spacing:0.08em;margin-bottom:8px">STEP 3 — EMERGENCY ONLY</div>
+                <div style="font-size:16px;font-weight:700;color:#0D2137;margin-bottom:10px">ED / Call 999</div>
+                <div style="font-size:12px;color:#64748B;line-height:1.6">
+                    Life-threatening symptoms, major trauma, or when advised by a clinician.
+                </div>
+            </div>
+        </div>
+    </div>
+    """, unsafe_allow_html=True)
+
+    # Pharmacy First
+    st.markdown("""
+    <div style="background:#F0FDF4;border-radius:12px;padding:24px;margin-bottom:16px">
+        <div style="display:flex;align-items:flex-start;gap:16px;margin-bottom:16px">
+            <div style="background:#0D9488;width:48px;height:48px;border-radius:10px;
+                        display:flex;align-items:center;justify-content:center;
+                        font-size:20px;flex-shrink:0">💊</div>
+            <div>
+                <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
+                    <span style="font-size:16px;font-weight:700;color:#0D2137">Pharmacy First — Skip the GP Queue</span>
+                    <span style="background:#0D9488;color:white;font-size:11px;font-weight:600;
+                                 padding:3px 8px;border-radius:4px">HSE Scheme</span>
+                </div>
+                <div style="font-size:13px;color:#374151;line-height:1.7">
+                    Under the HSE expanded pharmacy services, pharmacists across Ireland can now
+                    <strong>assess, advise, and in some cases prescribe</strong> for a range of common conditions
+                    — without you needing a GP appointment first. With GP services also under pressure,
+                    this is a fast, free, and convenient option for many everyday illnesses.
+                </div>
+            </div>
+        </div>
+        <div style="background:white;border:1px solid #BBFDD8;border-radius:8px;padding:14px;
+                    font-size:13px;color:#374151;line-height:1.6;margin-bottom:16px">
+            Walk into any participating pharmacy. No appointment necessary. Most services are available
+            on the spot during pharmacy opening hours. GMS/medical card holders may be entitled to free treatment.
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+    """, unsafe_allow_html=True)
+
+    pharmacy_conditions = [
+        ("Urinary Tract Infection (UTI)",     "Uncomplicated UTIs in women aged 16–64 can be assessed and treated with antibiotics directly by your pharmacist.", "Women only. No referral needed."),
+        ("Cold Sores (Herpes Labialis)",       "Antiviral creams and oral antivirals for cold sores are available from your pharmacist without a prescription.", None),
+        ("Shingles",                           "Pharmacists can supply antiviral treatment for shingles. Early treatment (within 72 hours of rash) is most effective.", "Start treatment as early as possible."),
+        ("Impetigo",                           "A common bacterial skin infection. Pharmacists can assess and supply appropriate antibiotic treatment.", None),
+        ("Hay Fever & Allergic Rhinitis",      "Antihistamines, nasal sprays, and eye drops are available directly from pharmacists for seasonal and year-round allergy symptoms.", None),
+        ("Emergency Contraception",            "The morning-after pill is available directly from pharmacists without a prescription, including out of hours.", None),
+        ("Head Lice",                          "Assessment and treatment for head lice infestations, including medicated lotions and wet-combing advice.", None),
+        ("Athlete's Foot & Fungal Infections", "Antifungal creams and treatments are available directly from pharmacists for skin, nail, and mouth fungal infections.", None),
+        ("Minor Skin Conditions",              "Eczema flares, mild acne, rashes, and insect bites can often be managed with products recommended by your pharmacist.", None),
+        ("Coughs, Colds & Sore Throats",       "Symptom relief and advice for common respiratory infections. Pharmacists can rule out anything that needs further care.", None),
+        ("Indigestion & Heartburn",            "Antacids, H2 blockers, and lifestyle advice for acid reflux and indigestion are available without a prescription.", None),
+        ("Threadworms",                        "Mebendazole and hygiene advice for threadworm infections in adults and children over 2 years.", None),
     ]
-    for title, desc, link in pathways:
+
+    for title, desc, note in pharmacy_conditions:
+        note_html = f'<div style="margin-top:8px;background:#F0FDF4;border:1px solid #BBFDD8;border-radius:20px;padding:4px 10px;font-size:11px;color:#16A34A;display:inline-block">{note}</div>' if note else ""
         st.markdown(f"""
-        <div class="resource-card">
-            <div class="resource-title">{title}</div>
-            <div class="resource-desc">{desc}</div>
-            <a href="{link}" target="_blank" class="resource-link">Learn more on HSE.ie</a>
+        <div style="background:white;border:1px solid #D1FAE5;border-radius:10px;padding:14px;display:flex;gap:12px;align-items:flex-start">
+            <div style="background:#DCFCE7;width:36px;height:36px;border-radius:8px;
+                        display:flex;align-items:center;justify-content:center;
+                        font-size:16px;flex-shrink:0">💊</div>
+            <div>
+                <div style="font-size:13px;font-weight:600;color:#0D2137;margin-bottom:4px">{title}</div>
+                <div style="font-size:12px;color:#64748B;line-height:1.5">{desc}</div>
+                {note_html}
+            </div>
         </div>
         """, unsafe_allow_html=True)
 
+    st.markdown("</div></div>", unsafe_allow_html=True)
+
+    # Footer buttons
+    col1, col2 = st.columns(2)
+    with col1:
+        st.markdown("""
+        <a href="https://www.hse.ie/eng/health/az/p/pharmacy-services/" target="_blank"
+           style="display:block;background:#0D9488;color:white;text-align:center;padding:14px;
+                  border-radius:10px;font-size:14px;font-weight:600;text-decoration:none;margin-top:8px">
+            Find a Participating Pharmacy Near You
+        </a>""", unsafe_allow_html=True)
+    with col2:
+        st.markdown("""
+        <a href="https://www.hse.ie/eng/" target="_blank"
+           style="display:block;background:white;color:#0D9488;text-align:center;padding:14px;
+                  border-radius:10px;font-size:14px;font-weight:600;text-decoration:none;
+                  border:2px solid #0D9488;margin-top:8px">
+            Learn More on HSE.ie
+        </a>""", unsafe_allow_html=True)
+
+    # Mental health
     st.markdown('<div class="sec-title">Mental Health Support</div>', unsafe_allow_html=True)
     supports = [
         ("Samaritans","24/7 emotional support for anyone in distress","116 123 (Free)","tel:116123"),
@@ -608,36 +710,141 @@ elif page == "Contact":
         <div class="hero-sub">Important contacts for healthcare services across Ireland</div>
     </div>""", unsafe_allow_html=True)
 
+    # 10 Critical Symptoms
     st.markdown("""
-    <div class="call999-bar">
-        <div style="font-size:13px;color:rgba(255,255,255,0.85);margin-bottom:4px">Life-threatening emergency</div>
-        <div style="font-size:28px;font-weight:700;color:white">Call 999</div>
-        <div style="font-size:12px;color:rgba(255,255,255,0.75);margin-top:4px">Do not delay if you experience life-threatening symptoms</div>
-    </div>
+    <div style="background:#FFF1F2;border-radius:12px;padding:24px;margin-bottom:20px">
+        <div style="display:flex;align-items:center;gap:14px;margin-bottom:16px">
+            <div style="background:#DC2626;width:52px;height:52px;border-radius:12px;
+                        display:flex;align-items:center;justify-content:center;
+                        font-size:22px;flex-shrink:0;color:white">📞</div>
+            <div>
+                <div style="font-size:17px;font-weight:700;color:#0D2137;margin-bottom:6px">
+                    10 Critical Symptoms Requiring Immediate Review
+                </div>
+                <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap">
+                    <a href="tel:999" style="background:#DC2626;color:white;padding:6px 14px;
+                       border-radius:6px;font-size:12px;font-weight:700;text-decoration:none;
+                       letter-spacing:0.04em">CALL 999 IMMEDIATELY</a>
+                    <span style="font-size:12px;color:#64748B">If you experience any of these symptoms, call emergency services right away</span>
+                </div>
+            </div>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
     """, unsafe_allow_html=True)
 
-    contacts = [
-        ("GP Services",        "Contact your GP during office hours for non-emergency medical advice.", "Mon–Fri: 9:00 AM – 5:00 PM", None),
-        ("ShanDoc Out-of-Hours","GP out-of-hours service when your practice is closed.",                "1850 777 911",               "tel:1850777911"),
-        ("HSE Live",           "Health information and signposting to services.",                       "1850 24 1850",               "tel:1850241850"),
-        ("Minor Injury Units", "For minor injuries without appointment. Check local opening hours.",    "hse.ie",                     "https://www.hse.ie"),
-        ("Samaritans",         "24/7 emotional support.",                                               "116 123",                    "tel:116123"),
-        ("Pieta House",        "Support for suicidal distress and self-harm.",                          "1800 247 247",               "tel:1800247247"),
+    symptoms = [
+        (1, "Chest pain or chest tightness",           "Especially if crushing, radiating, or associated with sweating or nausea"),
+        (2, "Sudden shortness of breath",              "Could indicate respiratory failure, pulmonary embolism, or cardiac issues"),
+        (3, "Sudden weakness, numbness, or paralysis", "Especially one-sided — possible stroke"),
+        (4, "Altered level of consciousness",          "Confusion, collapse, fainting, or unresponsiveness"),
+        (5, "Severe allergic reaction",                "Facial/lip/tongue swelling, wheezing, difficulty breathing"),
+        (6, "Uncontrolled bleeding",                   "External or suspected internal bleeding"),
+        (7, "Severe abdominal pain",                   "Especially with rigidity, fever, or vomiting"),
+        (8, "High fever with signs of infection",      "Fever + confusion, rapid heart rate, low blood pressure (possible sepsis)"),
+        (9, "Persistent seizures or first-time seizure","Especially if lasting more than 5 minutes"),
+        (10,"Severe headache of sudden onset",         "Sudden, intense headache unlike any experienced before"),
     ]
 
-    for title, desc, contact, link in contacts:
-        link_html = f'<a href="{link}" style="display:block;margin-top:8px;background:#0D9488;color:white;text-align:center;padding:8px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none">{contact}</a>' if link else f'<div style="margin-top:6px;font-size:12px;color:#64748B">{contact}</div>'
+    for num, title, desc in symptoms:
         st.markdown(f"""
-        <div class="contact-card" style="text-align:left">
-            <div class="resource-title">{title}</div>
-            <div class="resource-desc">{desc}</div>
-            {link_html}
+        <div style="background:white;border:1px solid #FECDD3;border-radius:10px;padding:14px;
+                    display:flex;gap:12px;align-items:flex-start">
+            <div style="background:#FFF1F2;width:36px;height:36px;border-radius:8px;
+                        display:flex;align-items:center;justify-content:center;
+                        font-size:14px;font-weight:700;color:#DC2626;flex-shrink:0">{num}</div>
+            <div>
+                <div style="font-size:13px;font-weight:600;color:#0D2137;margin-bottom:3px">{title}</div>
+                <div style="font-size:12px;color:#64748B;line-height:1.5">{desc}</div>
+            </div>
         </div>
         """, unsafe_allow_html=True)
 
+    st.markdown("</div></div>", unsafe_allow_html=True)
+
+    # Call 999 banner
     st.markdown("""
-    <div class="footer">
-        HealthFlow &nbsp;|&nbsp; Group 2 &nbsp;|&nbsp; UCC IS6611 &nbsp;|&nbsp; 2026<br>
-        This platform is for informational purposes only and does not replace professional medical advice.
+    <div style="background:#DC2626;border-radius:12px;padding:20px 24px;margin-bottom:20px;
+                display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px">
+        <div style="display:flex;align-items:center;gap:14px">
+            <div style="font-size:22px;color:white">📞</div>
+            <div>
+                <div style="font-size:12px;color:rgba(255,255,255,0.8)">Emergency Services</div>
+                <div style="font-size:26px;font-weight:700;color:white">Call 999</div>
+            </div>
+        </div>
+        <div style="font-size:13px;color:rgba(255,255,255,0.85);max-width:400px;line-height:1.5">
+            Do not delay if you experience any of these symptoms. Time is critical in emergency situations.
+        </div>
+    </div>
+    """, unsafe_allow_html=True)
+
+    # GP / Out of Hours / Minor Injury cards
+    col1, col2, col3 = st.columns(3)
+    with col1:
+        st.markdown("""
+        <div style="background:#EFF6FF;border:1px solid #BFDBFE;border-radius:12px;padding:20px;height:100%">
+            <div style="font-size:15px;font-weight:700;color:#1D4ED8;margin-bottom:12px">GP Services</div>
+            <div style="font-size:13px;color:#1E40AF;line-height:1.6;margin-bottom:16px">
+                For non-emergency medical advice, contact your GP during office hours.
+            </div>
+            <div style="font-size:12px;color:#2563EB;font-weight:500">Mon–Fri: 9:00 AM – 5:00 PM</div>
+        </div>""", unsafe_allow_html=True)
+    with col2:
+        st.markdown("""
+        <div style="background:#F0FDFA;border:1px solid #99F6E4;border-radius:12px;padding:20px;height:100%">
+            <div style="font-size:15px;font-weight:700;color:#0D9488;margin-bottom:12px">Out of Hours</div>
+            <div style="font-size:13px;color:#0F766E;line-height:1.6;margin-bottom:16px">
+                ShanDoc provides out-of-hours GP services when your practice is closed.
+            </div>
+            <a href="tel:1850777911" style="font-size:12px;color:#0D9488;font-weight:600;text-decoration:none">
+                Call: 1850 777 911
+            </a>
+        </div>""", unsafe_allow_html=True)
+    with col3:
+        st.markdown("""
+        <div style="background:#FAF5FF;border:1px solid #E9D5FF;border-radius:12px;padding:20px;height:100%">
+            <div style="font-size:15px;font-weight:700;color:#7C3AED;margin-bottom:12px">Minor Injury Units</div>
+            <div style="font-size:13px;color:#6D28D9;line-height:1.6;margin-bottom:16px">
+                For minor injuries like sprains, cuts, and minor burns without appointment.
+            </div>
+            <a href="https://www.hse.ie" target="_blank"
+               style="font-size:12px;color:#7C3AED;font-weight:600;text-decoration:none">
+                Check local unit opening hours
+            </a>
+        </div>""", unsafe_allow_html=True)
+
+    # Footer
+    st.markdown("""
+    <div style="background:#0D2137;border-radius:12px;padding:28px 24px;margin-top:24px">
+        <div style="display:grid;grid-template-columns:2fr 1fr 1fr;gap:2rem;margin-bottom:20px">
+            <div>
+                <div style="font-size:15px;font-weight:700;color:white;margin-bottom:10px">HSE Emergency Services</div>
+                <div style="font-size:13px;color:#94A3B8;line-height:1.6">
+                    Providing real-time emergency department information to help you make
+                    informed decisions about your healthcare.
+                </div>
+            </div>
+            <div>
+                <div style="font-size:15px;font-weight:700;color:white;margin-bottom:10px">Quick Links</div>
+                <div style="font-size:13px;color:#64748B;line-height:2">
+                    <a href="#" style="color:#64748B;text-decoration:none;display:block">Find Your Nearest ED</a>
+                    <a href="#" style="color:#64748B;text-decoration:none;display:block">GP Services</a>
+                    <a href="https://www.hse.ie" style="color:#64748B;text-decoration:none;display:block">Health Information</a>
+                </div>
+            </div>
+            <div>
+                <div style="font-size:15px;font-weight:700;color:white;margin-bottom:10px">Emergency Contacts</div>
+                <div style="font-size:13px;color:#94A3B8;line-height:2">
+                    <div><strong style="color:white">Emergency:</strong> 999</div>
+                    <div><strong style="color:white">ShanDoc (Out of Hours):</strong> 1850 777 911</div>
+                    <div><strong style="color:white">HSE Live:</strong> 1850 24 1850</div>
+                </div>
+            </div>
+        </div>
+        <div style="border-top:1px solid #1e3a5f;padding-top:16px;text-align:center;
+                    font-size:12px;color:#64748B">
+            HealthFlow &nbsp;|&nbsp; Group 2 &nbsp;|&nbsp; UCC IS6611 &nbsp;|&nbsp; 2026 &nbsp;|&nbsp;
+            This platform is for informational purposes only and does not replace professional medical advice.
+        </div>
     </div>
     """, unsafe_allow_html=True)
