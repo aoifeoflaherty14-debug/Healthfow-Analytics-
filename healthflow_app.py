@@ -370,6 +370,8 @@ with col_n3:
 with col_n4:
     if st.button("Contact",        use_container_width=True): st.session_state.page="Contact";        st.rerun()
 with col_999:
+    pass
+with col_999:
     st.markdown("""
     <div style="text-align:right;padding-top:2px">
         <a href="tel:999" style="background:#DC2626;color:white;padding:6px 14px;
@@ -580,58 +582,15 @@ elif page == "Patient Advice":
     """, unsafe_allow_html=True)
 
 
-    # ── Survey ──────────────────────────────────────────────────────────────
-    st.markdown('<div class="sec-title">Help Us Improve</div>', unsafe_allow_html=True)
-    st.markdown('<div class="survey-card"><div class="survey-title">Quick Feedback Survey</div>'
-               '<div class="survey-sub">This short survey runs after every recommendation. '
-               'Your responses help us improve HealthFlow for everyone.</div></div>',
-               unsafe_allow_html=True)
-
-    with st.form('care_survey', clear_on_submit=True):
-        q1 = st.selectbox('What condition or symptom brought you here today?', [
-            'Select...',
-            'Chest pain / breathing difficulty',
-            'Fever / flu-like symptoms',
-            'Injury (sprain, cut, burn)',
-            'UTI / infection',
-            'Mental health concern',
-            'Abdominal / stomach pain',
-            'Skin condition / rash',
-            'Cold / sore throat / cough',
-            'Child illness',
-            'Other',
-        ])
-        q2 = st.selectbox('What action did you actually take (or plan to take)?', [
-            'Select...',
-            'Called 999 / went to A&E',
-            'Visited a Minor Injury Unit',
-            'Contacted my GP',
-            'Used GP out-of-hours service',
-            'Used Urgent Virtual Care (UVC)',
-            'Went to a pharmacy',
-            'Stayed at home / self-managed',
-            'Still deciding',
-        ])
-        q3 = st.select_slider(
-            'How satisfied were you with the recommendation you received?',
-            options=['Very Dissatisfied', 'Dissatisfied', 'Neutral', 'Satisfied', 'Very Satisfied'],
-            value='Satisfied'
-        )
-        q4 = st.radio(
-            'Did the recommendation match what you actually needed?',
-            ['Yes, it was accurate', 'Somewhat — I needed something slightly different', 'No, I needed different advice'],
-        )
-        q5 = st.text_area('Any additional comments? (optional)', placeholder='Tell us how we can improve...', height=80)
-        submitted = st.form_submit_button('Submit Feedback', type='primary', use_container_width=True)
-        if submitted and q1 != 'Select...' and q2 != 'Select...':
-            st.markdown('<div class="survey-thanks">'
-                        '<div style="font-size:20px;margin-bottom:8px">Thank you for your feedback</div>'
-                        '<div style="font-size:15px;color:#16A34A;font-weight:600;">Your response has been recorded and will help us improve HealthFlow.</div>'
-                        '</div>', unsafe_allow_html=True)
-        elif submitted:
-            st.warning('Please answer the first two questions before submitting.')
 
     st.divider()
+    col_sv1, col_sv2 = st.columns(2)
+    with col_sv1:
+        if st.button("Leave Feedback on this Recommendation", use_container_width=True):
+            st.session_state.page = "Survey"
+            st.rerun()
+    with col_sv2:
+        pass
 
     st.markdown('<div class="sec-title">Concierge Notification</div>', unsafe_allow_html=True)
     st.markdown('<div style="font-size:13px;color:#64748B;margin-bottom:10px">Register to be notified when wait times drop at your preferred hospital.</div>', unsafe_allow_html=True)
@@ -862,7 +821,107 @@ elif page == "Resources":
         """, unsafe_allow_html=True)
 
 # ══════════════════════════════════════════════════════════════════════════════
-# PAGE 4 — CONTACT
+# PAGE 4 — SURVEY
+# ══════════════════════════════════════════════════════════════════════════════
+elif page == "Survey":
+    st.markdown("""
+    <div class="hero">
+        <div class="hero-title">Patient Feedback Survey</div>
+        <div class="hero-sub">Help us improve HealthFlow — this takes less than a minute</div>
+    </div>""", unsafe_allow_html=True)
+
+    st.markdown("""
+    <div class="survey-card">
+        <div class="survey-title">Your Experience Today</div>
+        <div class="survey-sub">
+            This survey collects information about your condition, what action you took,
+            and how satisfied you were with the recommendation you received.
+            All responses are anonymous and used only to improve the service.
+        </div>
+    </div>
+    """, unsafe_allow_html=True)
+
+    st.markdown("<div style='height:12px'></div>", unsafe_allow_html=True)
+
+    with st.form("care_survey", clear_on_submit=True):
+        st.markdown('<div style="font-size:17px;font-weight:700;color:#0D2137;margin-bottom:16px">About your condition</div>', unsafe_allow_html=True)
+
+        q1 = st.selectbox("What condition or symptom brought you here today?", [
+            "Select...",
+            "Chest pain / breathing difficulty",
+            "Fever / flu-like symptoms",
+            "Injury (sprain, cut, burn)",
+            "UTI / infection",
+            "Mental health concern",
+            "Abdominal / stomach pain",
+            "Skin condition / rash",
+            "Cold / sore throat / cough",
+            "Child illness",
+            "Other",
+        ])
+
+        q_age = st.selectbox("What age group applies to the patient?", [
+            "Under 5 — Infant / Toddler",
+            "5–15 — Child",
+            "16–25 — Young Adult",
+            "26–64 — Adult",
+            "65+ — Senior",
+        ], index=3)
+
+        st.markdown('<div style="font-size:17px;font-weight:700;color:#0D2137;margin:20px 0 16px 0">What you did</div>', unsafe_allow_html=True)
+
+        q2 = st.selectbox("What action did you actually take (or plan to take)?", [
+            "Select...",
+            "Called 999 / went to A&E",
+            "Visited a Minor Injury Unit",
+            "Contacted my GP",
+            "Used GP out-of-hours service",
+            "Used Urgent Virtual Care (UVC)",
+            "Went to a pharmacy",
+            "Stayed at home / self-managed",
+            "Still deciding",
+        ])
+
+        st.markdown('<div style="font-size:17px;font-weight:700;color:#0D2137;margin:20px 0 16px 0">Your satisfaction</div>', unsafe_allow_html=True)
+
+        q3 = st.select_slider(
+            "How satisfied were you with the recommendation you received?",
+            options=["Very Dissatisfied", "Dissatisfied", "Neutral", "Satisfied", "Very Satisfied"],
+            value="Satisfied"
+        )
+
+        q4 = st.radio(
+            "Did the recommendation match what you actually needed?",
+            ["Yes, it was accurate",
+             "Somewhat — I needed something slightly different",
+             "No, I needed different advice"],
+        )
+
+        q5 = st.radio(
+            "Would you use HealthFlow again?",
+            ["Definitely yes", "Probably yes", "Not sure", "Probably not", "Definitely not"],
+            horizontal=True
+        )
+
+        st.markdown('<div style="font-size:17px;font-weight:700;color:#0D2137;margin:20px 0 16px 0">Any other comments?</div>', unsafe_allow_html=True)
+        q6 = st.text_area("", placeholder="Tell us how we can improve HealthFlow...", height=100, label_visibility="collapsed")
+
+        submitted = st.form_submit_button("Submit Feedback", type="primary", use_container_width=True)
+
+        if submitted and q1 != "Select..." and q2 != "Select...":
+            st.markdown("""
+            <div class="survey-thanks">
+                <div style="font-size:24px;font-weight:700;color:#16A34A;margin-bottom:8px">Thank you for your feedback</div>
+                <div style="font-size:16px;color:#374151;line-height:1.7">
+                    Your response has been recorded and will help us improve HealthFlow for everyone in Ireland.
+                </div>
+            </div>
+            """, unsafe_allow_html=True)
+        elif submitted:
+            st.warning("Please answer the first two questions before submitting.")
+
+# ══════════════════════════════════════════════════════════════════════════════
+# PAGE 5 — CONTACT
 # ══════════════════════════════════════════════════════════════════════════════
 elif page == "Contact":
     st.markdown("""
