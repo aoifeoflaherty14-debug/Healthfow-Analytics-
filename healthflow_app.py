@@ -587,6 +587,8 @@ elif page == "Patient Advice":
         ("Child Illness / High Fever",             "Unwell child, persistent high temperature",        "life",     "#FFF1F2","#DC2626"),
         ("Not Sure / Something Else",              "Something else / Not listed above",                "minor",    "#F8FAFC","#64748B"),
     ]
+    if "sel_urgency" not in st.session_state:
+        st.session_state.sel_urgency = URGENCY_OPTIONS[0][0]
     sel_urg = st.session_state.sel_urgency
     urgency_type = "minor"
     sel_bc  = "#0D9488"
