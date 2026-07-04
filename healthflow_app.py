@@ -256,20 +256,27 @@ def load_synthetic():
 @st.cache_data
 def load_gp():
     try:
-        return pd.read_csv(
+        df = pd.read_csv(
             "https://raw.githubusercontent.com/125109486-dev/Health-Flow-Datasets-Code/refs/heads/main/gp_out_of_hours.csv",
-            encoding="latin-1"
+            encoding="latin-1", header=1
         )
+        df = df[["Name","Address","Opening Hours","Day"]].dropna(subset=["Name"])
+        df.columns = ["name","address","hours","days"]
+        return df
     except Exception:
         return pd.DataFrame()
 
 @st.cache_data
 def load_miu():
     try:
-        return pd.read_csv(
+        df = pd.read_csv(
             "https://raw.githubusercontent.com/125109486-dev/Health-Flow-Datasets-Code/refs/heads/main/minor_injury_units.csv",
             encoding="latin-1"
         )
+        df.columns = [c.replace("\ufeff","").replace("ï»¿","").strip() for c in df.columns]
+        df = df[["County","Name","Address","Hours","Days","Ages"]].dropna(subset=["Name"])
+        df.columns = ["county","name","address","hours","days","ages"]
+        return df
     except Exception:
         return pd.DataFrame()
 
@@ -936,25 +943,22 @@ elif page == "Resources":
             unsafe_allow_html=True
         )
 
-    if not gp_df.empty and res_county:
-        county_gp = gp_df[gp_df["county"].str.lower() == res_county.lower()]
-        if len(county_gp) > 0:
-            for _, row in county_gp.iterrows():
-                st.markdown(
-                    f"<div class='resource-card'><div class='resource-title'>{row['name']}</div>"
-                    f"<div class='resource-desc'>{row['address']}</div>"
-                    f"<div style='font-size:14px;color:#374151;'>{row['hours']} · {row['days']}</div></div>",
-                    unsafe_allow_html=True
-                )
-        else:
-            st.warning(f"No GP out-of-hours service found for {res_county}. Call 1850 24 1850 (HSE Live).")
+    if not gp_df.empty:
+        st.markdown('<div style="font-size:14px;color:#64748B;margin-bottom:8px">Showing all GP out-of-hours services — use the geographic guide above to find yours.</div>', unsafe_allow_html=True)
+        for _, row in gp_df.head(10).iterrows():
+            st.markdown(
+                "<div class='resource-card'><div class='resource-title'>" + str(row['name']) + "</div>"
+                "<div class='resource-desc'>" + str(row['address']) + "</div>"
+                "<div style='font-size:14px;color:#374151;'>" + str(row['hours']) + " · " + str(row['days']) + "</div></div>",
+                unsafe_allow_html=True
+            )
     else:
-        st.info("Select your county above to see local GP out-of-hours services.")
+        st.info("GP out-of-hours data is currently unavailable.")
 
     # Minor Injury Units from data
     st.markdown('<div class="sec-title">Minor Injury Units Near You</div>', unsafe_allow_html=True)
     if not miu_df.empty and res_county:
-        county_miu = miu_df[miu_df["county"].str.lower() == res_county.lower()]
+        county_miu = miu_df[miu_df["county"].str.strip().str.lower() == res_county.strip().lower()]
         if len(county_miu) > 0:
             mcols = st.columns(min(len(county_miu), 2))
             for i, (_, row) in enumerate(county_miu.iterrows()):
