@@ -94,7 +94,6 @@ st.markdown("""
 .resource-desc{font-size:15px;color:#64748B;line-height:1.6;margin-bottom:10px;}
 .resource-link{color:#0D9488;font-size:15px;font-weight:600;text-decoration:none;}
 
-div[data-testid="stButton"] button{border-radius:10px!important;padding:14px 16px!important;text-align:left!important;height:auto!important;white-space:pre-wrap!important;line-height:1.5!important;}
 </style>
 """, unsafe_allow_html=True)
 
