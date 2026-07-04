@@ -192,10 +192,18 @@ GOOGLE_MAPS = {
 
 CM = {"Green":"#16A34A","Amber":"#D97706","Red":"#DC2626"}
 
-def rag_meta(occ):
-    if occ >= 8:   return "#DC2626","s-red","Very Busy"
-    if occ >= 4:   return "#D97706","s-amber","Busy"
-    return "#16A34A","s-green","Normal"
+def rag_meta(occ_or_status):
+    """Accept either occupancy float or status string."""
+    try:
+        occ = float(occ_or_status)
+        if occ >= 8:   return "#DC2626","s-red","Very Busy"
+        if occ >= 4:   return "#D97706","s-amber","Busy"
+        return "#16A34A","s-green","Normal"
+    except (TypeError, ValueError):
+        # Fallback if a status string is passed
+        if occ_or_status == "Red":   return "#DC2626","s-red","Very Busy"
+        if occ_or_status == "Amber": return "#D97706","s-amber","Busy"
+        return "#16A34A","s-green","Normal"
 
 def get_hospitals_for_age(county, age):
     all_hosps = HOSPITAL_MAP.get(county, [])
@@ -272,28 +280,40 @@ latest_syn = synthetic.sort_values("date").groupby("Hospital").last().reset_inde
 gp_df  = load_gp()
 miu_df = load_miu()
 
+def occ_to_status(occ):
+    """Derive RAG status from occupancy rate."""
+    try:
+        occ = float(occ)
+    except (TypeError, ValueError):
+        return "Green"
+    if occ >= 8:   return "Red"
+    elif occ >= 4: return "Amber"
+    return "Green"
+
 def get_hosp_data(hospital_name):
     row = master[master["Hospital"].str.lower().str.contains(hospital_name.lower().split()[0], na=False)]
     if not row.empty:
-        r = row.iloc[0]
-        occ    = r["Occupancy_Rate_pct"] if pd.notna(r["Occupancy_Rate_pct"]) else 5.0
-        status = r["Traffic_Light_Status"]
-        troll  = int(r["Daily_Total"]) if pd.notna(r["Daily_Total"]) else 0
-        bis    = r["Behavioural_Impact_Score"]
+        r   = row.iloc[0]
+        occ = float(r["Occupancy_Rate_pct"]) if pd.notna(r["Occupancy_Rate_pct"]) else 5.0
+        troll = int(r["Daily_Total"]) if pd.notna(r["Daily_Total"]) else 0
+        bis   = r["Behavioural_Impact_Score"]
+        # Derive status from occupancy — don't trust stale Traffic_Light_Status field
+        status = occ_to_status(occ)
         return occ, status, troll, bis
     row2 = latest_syn[latest_syn["Hospital"].str.lower().str.contains(hospital_name.lower().split()[0], na=False)]
     if not row2.empty:
-        r2     = row2.iloc[0]
-        occ    = r2["occupancy_rate_pct"]
-        status = r2["traffic_light_status"]
-        troll  = int(r2["total_trolleys"]) if pd.notna(r2.get("total_trolleys", 0)) else 0
-        bis    = float(r2.get("behavioural_impact_score", 0))
+        r2    = row2.iloc[0]
+        occ   = float(r2["occupancy_rate_pct"]) if pd.notna(r2["occupancy_rate_pct"]) else 5.0
+        troll = int(r2["total_trolleys"]) if pd.notna(r2.get("total_trolleys", 0)) else 0
+        bis   = float(r2.get("behavioural_impact_score", 0))
+        status = occ_to_status(occ)
         return occ, status, troll, bis
     return 5.0, "Green", 0, 0.0
 
-red_c = int((latest_syn["traffic_light_status"]=="Red").sum())
-amb_c = int((latest_syn["traffic_light_status"]=="Amber").sum())
-grn_c = int((latest_syn["traffic_light_status"]=="Green").sum())
+latest_syn["derived_status"] = latest_syn["occupancy_rate_pct"].apply(occ_to_status)
+red_c = int((latest_syn["derived_status"]=="Red").sum())
+amb_c = int((latest_syn["derived_status"]=="Amber").sum())
+grn_c = int((latest_syn["derived_status"]=="Green").sum())
 
 # ── Session state ─────────────────────────────────────────────────────────────
 if "onboarded" not in st.session_state:
@@ -440,10 +460,10 @@ if page == "ED Status":
     cols = st.columns(2)
     for i, hosp in enumerate(age_hospitals):
         occ, status, troll, bis = get_hosp_data(hosp)
-        rc, sc, rl = rag_meta(status)
+        rc, sc, rl = rag_meta(occ)
         dot_col = {"Red":"#DC2626","Amber":"#D97706","Green":"#16A34A"}.get(status,"#94A3B8")
         cap_pct = min(int(occ*10), 100)
-        cap_col = "#DC2626" if occ>=8 else "#D97706" if occ>=4 else "#16A34A"
+        cap_col = {"Red":"#DC2626","Amber":"#D97706","Green":"#16A34A"}.get(status,"#16A34A")
         is_chi  = "CHI" in hosp
         badge   = "Children's" if is_chi else "Public"
         maps_url = GOOGLE_MAPS.get(hosp, f"https://maps.google.com/?q={hosp.replace(' ','+')}+Ireland")
@@ -572,7 +592,7 @@ elif page == "Patient Advice":
             break
 
     occ, status, troll, bis = get_hosp_data(sel_hosp)
-    rc, sc, rl = rag_meta(status)
+    rc, sc, rl = rag_meta(occ)
     pathway, path_c, path_desc = get_pathway(occ, urgency_type)
 
     st.markdown(f"""
