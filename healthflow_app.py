@@ -587,16 +587,16 @@ elif page == "Patient Advice":
         ("Child Illness / High Fever",             "Unwell child, persistent high temperature",        "life",     "#FFF1F2","#DC2626"),
         ("Not Sure / Something Else",              "Something else / Not listed above",                "minor",    "#F8FAFC","#64748B"),
     ]
-        sel_urg = st.session_state.sel_urgency
-        urgency_type = "minor"
-        sel_bc  = "#0D9488"
-        sel_sub = ""
-        for ti, sub, ut, bg, bc in URGENCY_OPTIONS:
-            if ti == sel_urg:
-                urgency_type = ut
-                sel_bc  = bc
-                sel_sub = sub
-                break
+    sel_urg = st.session_state.sel_urgency
+    urgency_type = "minor"
+    sel_bc  = "#0D9488"
+    sel_sub = ""
+    for ti, sub, ut, bg, bc in URGENCY_OPTIONS:
+        if ti == sel_urg:
+            urgency_type = ut
+            sel_bc  = bc
+            sel_sub = sub
+            break
                 
     occ, status, troll, bis = get_hosp_data(sel_hosp)
     rc, sc, rl = rag_meta(occ)
