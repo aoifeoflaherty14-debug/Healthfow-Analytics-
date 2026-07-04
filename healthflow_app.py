@@ -192,9 +192,9 @@ GOOGLE_MAPS = {
 
 CM = {"Green":"#16A34A","Amber":"#D97706","Red":"#DC2626"}
 
-def rag_meta(status):
-    if status == "Red":   return "#DC2626","s-red","Very Busy"
-    if status == "Amber": return "#D97706","s-amber","Busy"
+def rag_meta(occ):
+    if occ >= 8:   return "#DC2626","s-red","Very Busy"
+    if occ >= 4:   return "#D97706","s-amber","Busy"
     return "#16A34A","s-green","Normal"
 
 def get_hospitals_for_age(county, age):
