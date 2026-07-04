@@ -663,16 +663,48 @@ elif page == "Patient Advice":
             _,_,rl2 = rag_meta(s2)
             st.markdown(f"- **{h}** — {rl2}")
 
-    # Critical symptoms
-    st.markdown("""
-    <div class="crit-box">
-        <span class="crit-badge">Critical Symptoms — Call 999 Immediately</span>
-        <div class="crit-item"><span class="crit-num">1</span><div><div class="crit-name">Chest Pain</div><div class="crit-sub">Crushing chest pain, left arm pain, sweating</div></div></div>
-        <div class="crit-item"><span class="crit-num">2</span><div><div class="crit-name">Stroke</div><div class="crit-sub">FAST — Face, Arms, Speech, Time to call 999</div></div></div>
-        <div class="crit-item"><span class="crit-num">3</span><div><div class="crit-name">Severe Breathing Difficulty</div><div class="crit-sub">Unable to speak in full sentences</div></div></div>
-        <div class="crit-item"><span class="crit-num">4</span><div><div class="crit-name">Loss of Consciousness</div><div class="crit-sub">Collapsed, unresponsive, or seizure</div></div></div>
-    </div>
-    """, unsafe_allow_html=True)
+    symptoms = [
+        (1,  "Chest pain or chest tightness",            "Especially if crushing, radiating, or associated with sweating or nausea"),
+        (2,  "Sudden shortness of breath",               "Could indicate respiratory failure, pulmonary embolism, or cardiac issues"),
+        (3,  "Sudden weakness, numbness, or paralysis",  "Especially one-sided — possible stroke"),
+        (4,  "Altered level of consciousness",           "Confusion, collapse, fainting, or unresponsiveness"),
+        (5,  "Severe allergic reaction",                 "Facial/lip/tongue swelling, wheezing, difficulty breathing"),
+        (6,  "Uncontrolled bleeding",                    "External or suspected internal bleeding"),
+        (7,  "Severe abdominal pain",                    "Especially with rigidity, fever, or vomiting"),
+        (8,  "High fever with signs of infection",       "Fever + confusion, rapid heart rate, low blood pressure (possible sepsis)"),
+        (9,  "Persistent seizures or first-time seizure","Especially if lasting more than 5 minutes"),
+        (10, "Severe headache of sudden onset",          "Sudden, intense headache unlike any experienced before"),
+    ]
+    symptoms_html = ""
+    for num, title, desc in symptoms:
+        symptoms_html += (
+            "<div style='background:white;border:1px solid #FECDD3;border-radius:10px;"
+            "padding:16px;display:flex;gap:14px;align-items:flex-start'>"
+            "<div style='background:#FFF1F2;min-width:36px;height:36px;border-radius:8px;"
+            "display:flex;align-items:center;justify-content:center;"
+            "font-size:15px;font-weight:700;color:#DC2626'>" + str(num) + "</div>"
+            "<div><div style='font-size:15px;font-weight:600;color:#0D2137;margin-bottom:4px'>" + title + "</div>"
+            "<div style='font-size:13px;color:#64748B;line-height:1.5'>" + desc + "</div></div>"
+            "</div>"
+        )
+    st.markdown(
+        "<div style='background:#FFF1F2;border-radius:12px;padding:20px;margin-bottom:16px'>"
+        "<div style='display:flex;align-items:center;gap:14px;margin-bottom:16px'>"
+        "<div style='background:#DC2626;width:48px;height:48px;border-radius:12px;"
+        "display:flex;align-items:center;justify-content:center;color:white;font-size:20px;flex-shrink:0'>!</div>"
+        "<div><div style='font-size:17px;font-weight:700;color:#0D2137;margin-bottom:6px'>"
+        "10 Critical Symptoms Requiring Immediate Review</div>"
+        "<a href='tel:999' style='background:#DC2626;color:white;padding:6px 14px;"
+        "border-radius:6px;font-size:12px;font-weight:700;text-decoration:none;margin-right:10px'>"
+        "CALL 999 IMMEDIATELY</a>"
+        "<span style='font-size:12px;color:#64748B'>Call emergency services right away</span>"
+        "</div></div>"
+        "<div style='display:grid;grid-template-columns:1fr 1fr;gap:10px'>"
+        + symptoms_html +
+        "</div></div>",
+        unsafe_allow_html=True
+    )
+
 
     st.divider()
     col_sv1, col_sv2 = st.columns(2)
@@ -1217,21 +1249,24 @@ elif page == "Contact":
         (10,"Severe headache of sudden onset",         "Sudden, intense headache unlike any experienced before"),
     ]
 
+    contact_symp_html = ""
     for num, title, desc in symptoms:
-        st.markdown(f"""
-        <div style="background:white;border:1px solid #FECDD3;border-radius:10px;padding:14px;
-                    display:flex;gap:12px;align-items:flex-start">
-            <div style="background:#FFF1F2;width:36px;height:36px;border-radius:8px;
-                        display:flex;align-items:center;justify-content:center;
-                        font-size:14px;font-weight:700;color:#DC2626;flex-shrink:0">{num}</div>
-            <div>
-                <div style="font-size:13px;font-weight:600;color:#0D2137;margin-bottom:3px">{title}</div>
-                <div style="font-size:12px;color:#64748B;line-height:1.5">{desc}</div>
-            </div>
-        </div>
-        """, unsafe_allow_html=True)
+        contact_symp_html += (
+            "<div style='background:white;border:1px solid #FECDD3;border-radius:10px;"
+            "padding:16px;display:flex;gap:14px;align-items:flex-start'>"
+            "<div style='background:#FFF1F2;min-width:36px;height:36px;border-radius:8px;"
+            "display:flex;align-items:center;justify-content:center;"
+            "font-size:15px;font-weight:700;color:#DC2626'>" + str(num) + "</div>"
+            "<div><div style='font-size:15px;font-weight:600;color:#0D2137;margin-bottom:4px'>" + title + "</div>"
+            "<div style='font-size:13px;color:#64748B;line-height:1.5'>" + desc + "</div></div>"
+            "</div>"
+        )
+    st.markdown(
+        "<div style='display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px'>"
+        + contact_symp_html + "</div></div></div>",
+        unsafe_allow_html=True
+    )
 
-    st.markdown("</div></div>", unsafe_allow_html=True)
 
     # Call 999 banner
     st.markdown("""
