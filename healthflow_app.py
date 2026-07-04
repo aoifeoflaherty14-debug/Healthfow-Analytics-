@@ -640,8 +640,7 @@ elif page == "Patient Advice":
  
     occ, status, troll, bis = get_hosp_data(sel_hosp)
     rc, sc, rl = rag_meta(occ)
-    pathway, path_c, path_desc = get_pathway(occ, urgency_type)    if "sel_urgency" not in st.session_state:
-        st.session_state.sel_urgency = URGENCY_OPTIONS[0][0]
+    pathway, path_c, path_desc = get_pathway(occ, urgency_type)
 
     urg_cols = st.columns(2)
     for idx, (ti, sub, ut, bg, bc) in enumerate(URGENCY_OPTIONS):
