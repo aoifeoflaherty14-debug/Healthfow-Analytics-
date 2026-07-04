@@ -658,22 +658,14 @@ elif page == "Patient Advice":
 
     # Critical symptoms
     st.markdown("""
-     <div class="crit-box">
-         <span class="crit-badge">Critical Symptoms — Call 999 Immediately</span>
-         <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px">
-             <div class="crit-item"><span class="crit-num">1</span><div><div class="crit-name">Chest pain or chest tightness</div><div class="crit-sub">Especially if crushing, radiating, or associated with sweating or nausea</div></div></div>
-             <div class="crit-item"><span class="crit-num">2</span><div><div class="crit-name">Sudden shortness of breath</div><div class="crit-sub">Could indicate respiratory failure, pulmonary embolism, or cardiac issues</div></div></div>
-             <div class="crit-item"><span class="crit-num">3</span><div><div class="crit-name">Sudden weakness, numbness, or paralysis</div><div class="crit-sub">Especially one-sided — possible stroke</div></div></div>
-             <div class="crit-item"><span class="crit-num">4</span><div><div class="crit-name">Altered level of consciousness</div><div class="crit-sub">Confusion, collapse, fainting, or unresponsiveness</div></div></div>
-             <div class="crit-item"><span class="crit-num">5</span><div><div class="crit-name">Severe allergic reaction</div><div class="crit-sub">Facial/lip/tongue swelling, wheezing, difficulty breathing</div></div></div>
-             <div class="crit-item"><span class="crit-num">6</span><div><div class="crit-name">Uncontrolled bleeding</div><div class="crit-sub">External or suspected internal bleeding</div></div></div>
-             <div class="crit-item"><span class="crit-num">7</span><div><div class="crit-name">Severe abdominal pain</div><div class="crit-sub">Especially with rigidity, fever, or vomiting</div></div></div>
-             <div class="crit-item"><span class="crit-num">8</span><div><div class="crit-name">High fever with signs of infection</div><div class="crit-sub">Fever + confusion, rapid heart rate, low blood pressure (possible sepsis)</div></div></div>
-             <div class="crit-item"><span class="crit-num">9</span><div><div class="crit-name">Persistent seizures or first-time seizure</div><div class="crit-sub">Especially if lasting more than 5 minutes</div></div></div>
-             <div class="crit-item"><span class="crit-num">10</span><div><div class="crit-name">Severe headache of sudden onset</div><div class="crit-sub">Sudden, intense headache unlike any experienced before</div></div></div>
-         </div>
-     </div>
-     """, unsafe_allow_html=True)
+    <div class="crit-box">
+        <span class="crit-badge">Critical Symptoms — Call 999 Immediately</span>
+        <div class="crit-item"><span class="crit-num">1</span><div><div class="crit-name">Chest Pain</div><div class="crit-sub">Crushing chest pain, left arm pain, sweating</div></div></div>
+        <div class="crit-item"><span class="crit-num">2</span><div><div class="crit-name">Stroke</div><div class="crit-sub">FAST — Face, Arms, Speech, Time to call 999</div></div></div>
+        <div class="crit-item"><span class="crit-num">3</span><div><div class="crit-name">Severe Breathing Difficulty</div><div class="crit-sub">Unable to speak in full sentences</div></div></div>
+        <div class="crit-item"><span class="crit-num">4</span><div><div class="crit-name">Loss of Consciousness</div><div class="crit-sub">Collapsed, unresponsive, or seizure</div></div></div>
+    </div>
+    """, unsafe_allow_html=True)
 
     st.divider()
     col_sv1, col_sv2 = st.columns(2)
@@ -752,86 +744,106 @@ elif page == "Resources":
 
     # Primary Care Services
     st.markdown('<div class="sec-title">Primary Care Services</div>', unsafe_allow_html=True)
+
+    res_county = st.session_state.get("landing_county", "")
+
+    # Out of hours mapping
+    if res_county in ["Dublin", "Kildare", "Wicklow", "Meath", "Louth"]:
+        ooh_services = [("NowDoc (Dublin & Leinster)", "1850 592 0900", "tel:18505920900")]
+    elif res_county in ["Cork", "Kerry"]:
+        ooh_services = [("SouthDoc (Cork & Kerry)", "0818 355 999", "tel:0818355999")]
+    elif res_county in ["Limerick", "Tipperary", "Clare", "Galway", "Mayo", "Roscommon", "Sligo", "Leitrim"]:
+        ooh_services = [("ShanDoc (Shannon & West)", "1850 777 911", "tel:1850777911")]
+    elif res_county in ["Donegal", "Cavan", "Monaghan"]:
+        ooh_services = [("NorthDoc (North West)", "0818 000 003", "tel:0818000003")]
+    elif res_county in ["Waterford", "Wexford", "Kilkenny", "Carlow"]:
+        ooh_services = [("Caredoc (South East)", "0818 300 365", "tel:0818300365")]
+    else:
+        ooh_services = [
+            ("NowDoc (Dublin)", "1850 592 0900", "tel:18505920900"),
+            ("SouthDoc (Cork & Kerry)", "0818 355 999", "tel:0818355999"),
+            ("ShanDoc (Shannon & West)", "1850 777 911", "tel:1850777911"),
+        ]
+
+    ooh_html = ""
+    for name, number, link in ooh_services:
+        ooh_html += (
+            "<div style='background:#F8FAFC;border-radius:8px;padding:14px;margin-bottom:8px'>"
+            "<div style='font-size:14px;color:#64748B;margin-bottom:4px'>" + name + "</div>"
+            "<a href='" + link + "' style='font-size:16px;font-weight:700;color:#0D9488;text-decoration:none'>" + number + "</a>"
+            "</div>"
+        )
+
     col1, col2 = st.columns(2)
     with col1:
-        st.markdown("""
-        <div style="background:white;border-radius:12px;padding:24px;border:1px solid #E2E8F0;height:100%">
-            <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px">
-                <div style="background:#CCFBF1;width:48px;height:48px;border-radius:10px;
-                            display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0">+</div>
-                <div style="font-size:17px;font-weight:700;color:#0D2137">GP Services</div>
-            </div>
-            <div style="font-size:15px;color:#374151;line-height:1.7;margin-bottom:14px">
-                Your GP is your first point of contact for non-emergency medical issues.
-                They can assess, treat, and refer you if needed.
-            </div>
-            <div style="font-size:14px;color:#0D9488;margin-bottom:6px">Mon-Fri: 9am – 5pm (typical)</div>
-            <div style="font-size:14px;color:#64748B;margin-bottom:14px">Find your nearest GP practice</div>
-            <a href="https://www.hse.ie/eng/services/list/3/primarycare/" target="_blank"
-               style="display:block;border:1px solid #E2E8F0;border-radius:8px;padding:10px;
-                      text-align:center;font-size:14px;font-weight:600;color:#0D2137;text-decoration:none">
-                Find a GP
-            </a>
-        </div>""", unsafe_allow_html=True)
+        st.markdown(
+            "<div style='background:white;border-radius:12px;padding:24px;border:1px solid #E2E8F0;height:100%'>"
+            "<div style='display:flex;align-items:center;gap:12px;margin-bottom:14px'>"
+            "<div style='background:#CCFBF1;width:48px;height:48px;border-radius:10px;"
+            "display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0'>+</div>"
+            "<div style='font-size:17px;font-weight:700;color:#0D2137'>GP Services</div></div>"
+            "<div style='font-size:15px;color:#374151;line-height:1.7;margin-bottom:14px'>"
+            "Your GP is your first point of contact for non-emergency medical issues. "
+            "They can assess, treat, and refer you if needed.</div>"
+            "<div style='font-size:14px;color:#0D9488;margin-bottom:6px'>Mon-Fri: 9am – 5pm (typical)</div>"
+            "<div style='font-size:14px;color:#64748B;margin-bottom:14px'>Find your nearest GP practice</div>"
+            "<a href='https://www.google.com/maps/search/GP+doctor+near+me' target='_blank'"
+            " style='display:block;border:1px solid #E2E8F0;border-radius:8px;padding:10px;"
+            "text-align:center;font-size:14px;font-weight:600;color:#0D2137;text-decoration:none'>"
+            "Find a GP Near Me</a>"
+            "</div>",
+            unsafe_allow_html=True
+        )
     with col2:
-        st.markdown("""
-        <div style="background:white;border-radius:12px;padding:24px;border:1px solid #E2E8F0;height:100%">
-            <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px">
-                <div style="background:#EFF6FF;width:48px;height:48px;border-radius:10px;
-                            display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0">*</div>
-                <div style="font-size:17px;font-weight:700;color:#0D2137">Out-of-Hours GP</div>
-            </div>
-            <div style="font-size:15px;color:#374151;line-height:1.7;margin-bottom:14px">
-                When your GP surgery is closed, out-of-hours services provide urgent medical care.
-            </div>
-            <div style="background:#F8FAFC;border-radius:8px;padding:14px;margin-bottom:8px">
-                <div style="font-size:14px;color:#64748B;margin-bottom:4px">ShanDoc (Shannon Region)</div>
-                <a href="tel:1850777911" style="font-size:16px;font-weight:700;color:#0D9488;text-decoration:none">1850 777 911</a>
-            </div>
-            <div style="background:#F8FAFC;border-radius:8px;padding:14px;margin-bottom:8px">
-                <div style="font-size:14px;color:#64748B;margin-bottom:4px">NowDoc (Dublin)</div>
-                <a href="tel:18505920900" style="font-size:16px;font-weight:700;color:#0D9488;text-decoration:none">1850 592 0900</a>
-            </div>
-            <div style="font-size:14px;color:#64748B">Available evenings, nights & weekends</div>
-        </div>""", unsafe_allow_html=True)
+        st.markdown(
+            "<div style='background:white;border-radius:12px;padding:24px;border:1px solid #E2E8F0;height:100%'>"
+            "<div style='display:flex;align-items:center;gap:12px;margin-bottom:14px'>"
+            "<div style='background:#EFF6FF;width:48px;height:48px;border-radius:10px;"
+            "display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0'>*</div>"
+            "<div style='font-size:17px;font-weight:700;color:#0D2137'>Out-of-Hours GP</div></div>"
+            "<div style='font-size:15px;color:#374151;line-height:1.7;margin-bottom:14px'>"
+            "When your GP surgery is closed, out-of-hours services provide urgent medical care.</div>"
+            + ooh_html +
+            "<div style='font-size:14px;color:#64748B'>Available evenings, nights &amp; weekends</div>"
+            "</div>",
+            unsafe_allow_html=True
+        )
 
     st.markdown("<div style='height:12px'></div>", unsafe_allow_html=True)
 
     col1, col2 = st.columns(2)
     with col1:
-        st.markdown("""
-        <div style="background:white;border-radius:12px;padding:24px;border:1px solid #E2E8F0;height:100%">
-            <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px">
-                <div style="background:#FEF3C7;width:48px;height:48px;border-radius:10px;
-                            display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0">!</div>
-                <div style="font-size:17px;font-weight:700;color:#0D2137">Minor Injury Units</div>
-            </div>
-            <div style="font-size:15px;color:#374151;line-height:1.7;margin-bottom:14px">
-                Treatment for minor injuries like sprains, cuts, burns, and fractures without ED wait times.
-            </div>
-            <a href="https://www.hse.ie/eng/services/list/3/injuryunits/" target="_blank"
-               style="display:block;border:1px solid #E2E8F0;border-radius:8px;padding:10px;
-                      text-align:center;font-size:14px;font-weight:600;color:#0D2137;text-decoration:none">
-                Find your nearest MIU
-            </a>
-        </div>""", unsafe_allow_html=True)
+        st.markdown(
+            "<div style='background:white;border-radius:12px;padding:24px;border:1px solid #E2E8F0;height:100%'>"
+            "<div style='display:flex;align-items:center;gap:12px;margin-bottom:14px'>"
+            "<div style='background:#FEF3C7;width:48px;height:48px;border-radius:10px;"
+            "display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0'>!</div>"
+            "<div style='font-size:17px;font-weight:700;color:#0D2137'>Minor Injury Units</div></div>"
+            "<div style='font-size:15px;color:#374151;line-height:1.7;margin-bottom:14px'>"
+            "Treatment for minor injuries like sprains, cuts, burns, and fractures without ED wait times.</div>"
+            "<a href='https://www.google.com/maps/search/minor+injury+unit+near+me' target='_blank'"
+            " style='display:block;border:1px solid #E2E8F0;border-radius:8px;padding:10px;"
+            "text-align:center;font-size:14px;font-weight:600;color:#0D2137;text-decoration:none'>"
+            "Find Nearest Minor Injury Unit</a>"
+            "</div>",
+            unsafe_allow_html=True
+        )
     with col2:
-        st.markdown("""
-        <div style="background:white;border-radius:12px;padding:24px;border:1px solid #E2E8F0;height:100%">
-            <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px">
-                <div style="background:#FAF5FF;width:48px;height:48px;border-radius:10px;
-                            display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0">P</div>
-                <div style="font-size:17px;font-weight:700;color:#0D2137">Pharmacy Services</div>
-            </div>
-            <div style="font-size:15px;color:#374151;line-height:1.7;margin-bottom:14px">
-                Pharmacists can provide advice and treatment for minor ailments without a prescription.
-            </div>
-            <a href="https://www.hse.ie/eng/health/az/p/pharmacy-services/" target="_blank"
-               style="display:block;border:1px solid #E2E8F0;border-radius:8px;padding:10px;
-                      text-align:center;font-size:14px;font-weight:600;color:#0D2137;text-decoration:none">
-                Find a Pharmacy
-            </a>
-        </div>""", unsafe_allow_html=True)
+        st.markdown(
+            "<div style='background:white;border-radius:12px;padding:24px;border:1px solid #E2E8F0;height:100%'>"
+            "<div style='display:flex;align-items:center;gap:12px;margin-bottom:14px'>"
+            "<div style='background:#FAF5FF;width:48px;height:48px;border-radius:10px;"
+            "display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0'>P</div>"
+            "<div style='font-size:17px;font-weight:700;color:#0D2137'>Pharmacy Services</div></div>"
+            "<div style='font-size:15px;color:#374151;line-height:1.7;margin-bottom:14px'>"
+            "Pharmacists can provide advice and treatment for minor ailments without a prescription.</div>"
+            "<a href='https://www.google.com/maps/search/pharmacy+near+me' target='_blank'"
+            " style='display:block;border:1px solid #E2E8F0;border-radius:8px;padding:10px;"
+            "text-align:center;font-size:14px;font-weight:600;color:#0D2137;text-decoration:none'>"
+            "Find Nearest Pharmacy</a>"
+            "</div>",
+            unsafe_allow_html=True
+        )
 
     st.divider()
 
@@ -1201,23 +1213,21 @@ elif page == "Contact":
         (10,"Severe headache of sudden onset",         "Sudden, intense headache unlike any experienced before"),
     ]
 
-    symptoms_html = ""
     for num, title, desc in symptoms:
-        symptoms_html += (
-             "<div style='background:white;border:1px solid #FECDD3;border-radius:10px;"
-            "padding:14px;display:flex;gap:12px;align-items:flex-start'>"
-            "<div style='background:#FFF1F2;width:36px;height:36px;border-radius:8px;"
-            "display:flex;align-items:center;justify-content:center;"
-            "font-size:14px;font-weight:700;color:#DC2626;flex-shrink:0'>" + str(num) + "</div>"
-            "<div><div style='font-size:13px;font-weight:600;color:#0D2137;margin-bottom:3px'>" + title + "</div>"
-            "<div style='font-size:12px;color:#64748B;line-height:1.5'>" + desc + "</div></div>"
-            "</div>"
-            )
-    st.markdown(
-        "<div style='display:grid;grid-template-columns:1fr 1fr;gap:10px'>"
-        + symptoms_html + "</div></div></div>",
-        unsafe_allow_html=True
-    )
+        st.markdown(f"""
+        <div style="background:white;border:1px solid #FECDD3;border-radius:10px;padding:14px;
+                    display:flex;gap:12px;align-items:flex-start">
+            <div style="background:#FFF1F2;width:36px;height:36px;border-radius:8px;
+                        display:flex;align-items:center;justify-content:center;
+                        font-size:14px;font-weight:700;color:#DC2626;flex-shrink:0">{num}</div>
+            <div>
+                <div style="font-size:13px;font-weight:600;color:#0D2137;margin-bottom:3px">{title}</div>
+                <div style="font-size:12px;color:#64748B;line-height:1.5">{desc}</div>
+            </div>
+        </div>
+        """, unsafe_allow_html=True)
+
+    st.markdown("</div></div>", unsafe_allow_html=True)
 
     # Call 999 banner
     st.markdown("""
