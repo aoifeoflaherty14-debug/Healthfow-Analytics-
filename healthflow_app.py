@@ -589,6 +589,59 @@ elif page == "Patient Advice":
     ]
     if "sel_urgency" not in st.session_state:
         st.session_state.sel_urgency = URGENCY_OPTIONS[0][0]
+ 
+    urg_cols = st.columns(2)
+    for idx, (ti, sub, ut, bg, bc) in enumerate(URGENCY_OPTIONS):
+        is_sel      = (st.session_state.sel_urgency == ti)
+        dot         = "\U0001f534" if ut == "life" else ("\U0001f7e1" if ut == "moderate" else "\U0001f7e2")
+        card_bg     = bg if is_sel else "white"
+        card_border = bc if is_sel else "#E2E8F0"
+        card_weight = "700" if is_sel else "500"
+        btn_bg      = bc if is_sel else "#F1F5F9"
+        btn_col     = "white" if is_sel else "#64748B"
+        btn_txt     = "Selected" if is_sel else "Select"
+        with urg_cols[idx % 2]:
+            inner_cols = st.columns([5, 1])
+            with inner_cols[0]:
+                st.markdown(
+                    "<div style='background:" + card_bg + ";border:2px solid " + card_border + ";"
+                    "border-left:2px solid " + card_border + ";border-right:none;"
+                    "border-radius:10px 0 0 10px;padding:14px 16px;margin-bottom:4px;"
+                    "min-height:68px;display:flex;flex-direction:column;justify-content:center'>"
+                    "<div style=\'font-size:14px;font-weight:" + card_weight + ";color:#0D2137;margin-bottom:2px\'>"
+                    + dot + " " + ti + "</div>"
+                    "<div style=\'font-size:12px;color:#64748B\'>" + sub + "</div>"
+                    "</div>",
+                    unsafe_allow_html=True
+                )
+            with inner_cols[1]:
+                if st.button(btn_txt, key="urg_" + str(idx), use_container_width=True):
+                    st.session_state.sel_urgency = ti
+                    st.rerun()
+ 
+    sel_urg = st.session_state.sel_urgency
+    urgency_type = "minor"
+    sel_bc  = "#0D9488"
+    sel_sub = ""
+    for ti, sub, ut, bg, bc in URGENCY_OPTIONS:
+        if ti == sel_urg:
+            urgency_type = ut
+            sel_bc  = bc
+            sel_sub = sub
+            break
+ 
+    st.markdown(
+        "<div style='background:white;border-left:4px solid " + sel_bc + ";"
+        "border-radius:8px;padding:12px 16px;margin:8px 0 16px 0;border:1px solid #E2E8F0'>"
+        "<strong style='color:" + sel_bc + ";font-size:15px'>" + sel_urg + "</strong><br>"
+        "<span style='font-size:13px;color:#64748B'>" + sel_sub + "</span></div>",
+        unsafe_allow_html=True
+    )
+ 
+    occ, status, troll, bis = get_hosp_data(sel_hosp)
+    rc, sc, rl = rag_meta(occ)
+    pathway, path_c, path_desc = get_pathway(occ, urgency_type)    if "sel_urgency" not in st.session_state:
+        st.session_state.sel_urgency = URGENCY_OPTIONS[0][0]
 
     urg_cols = st.columns(2)
     for idx, (ti, sub, ut, bg, bc) in enumerate(URGENCY_OPTIONS):
