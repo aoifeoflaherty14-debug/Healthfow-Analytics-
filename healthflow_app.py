@@ -598,30 +598,15 @@ elif page == "Patient Advice":
         card_bg     = bg if is_sel else "white"
         card_border = bc if is_sel else "#E2E8F0"
         card_weight = "700" if is_sel else "500"
-        btn_bg      = bc if is_sel else "#F8FAFC"
-        btn_col     = "white" if is_sel else "#64748B"
         with urg_cols[idx % 2]:
-            st.markdown(
-                "<div style='background:" + card_bg + ";border:2px solid " + card_border + ";"
-                "border-radius:10px;padding:12px 14px;margin-bottom:6px;"
-                "display:flex;align-items:center;justify-content:space-between;gap:10px'>"
-                "<div style='flex:1;min-width:0'>"
-                "<div style='font-size:14px;font-weight:" + card_weight + ";color:#0D2137;margin-bottom:2px'>"
-                + dot + " " + ti + "</div>"
-                "<div style='font-size:12px;color:#64748B;white-space:nowrap;overflow:hidden;text-overflow:ellipsis'>" + sub + "</div>"
-                "</div>"
-                "</div>",
-                unsafe_allow_html=True
-            )
             if st.button(
-                "✓ Selected" if is_sel else "Select",
+                dot + "  " + ti + "\n" + sub,
                 key="urg_" + str(idx),
-                use_container_width=False,
+                use_container_width=True,
                 type="primary" if is_sel else "secondary"
             ):
                 st.session_state.sel_urgency = ti
                 st.rerun()
-            st.markdown("<div style='margin-top:-46px;margin-left:auto;width:90px;'></div>", unsafe_allow_html=True)
 
     sel_urg = st.session_state.sel_urgency
     urgency_type = "minor"
