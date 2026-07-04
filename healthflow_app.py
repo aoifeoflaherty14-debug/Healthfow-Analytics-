@@ -575,12 +575,17 @@ elif page == "Patient Advice":
     st.markdown('<div style="font-size:15px;color:#64748B;margin-bottom:14px">Select the option that best describes your situation. We will show you the most appropriate care pathway.</div>', unsafe_allow_html=True)
 
     URGENCY_OPTIONS = [
-        ("Chest pain or breathing difficulty",     "Tightness, pressure, shortness of breath",      "life"),
-        ("Stroke symptoms",                        "Face drooping, arm weakness, speech difficulty", "life"),
-        ("Severe injury or uncontrolled bleeding", "Major trauma, deep wound, broken bones",         "life"),
-        ("Collapsed, unconscious, or seizure",     "Loss of consciousness, fitting",                 "life"),
-        ("Moderate illness — needs same-day care", "Infection, fever, moderate pain",                "moderate"),
-        ("Minor — can wait or self-manage",        "Cold, rash, prescription renewal, UTI",          "minor"),
+        ("Chest Pain or Breathing Difficulty", "Tightness, pressure, shortness of breath", "life"),
+        ("Stroke Symptoms", "Face drooping, arm weakness, speech difficulty", "life"),
+        ("Severe Injury or Uncontrolled Bleeding", "Major trauma, deep wound, broken bones", "life"),
+        ("Collapsed, unconscious, or seizure", "Loss of consciousness, fitting", "life"),
+        ("Severe Allergic Reaction", "Swelling of face, lips or throat, wheezing", "life"),
+        ("Minor Injury", "Sprain, small cut, minor burn, possible fracture", "moderate"),
+        ("Stomach / Abdominal Pain", "Cramps, nausea, vomiting, indigestion", "moderate"),
+        ("Moderate Illness — needs same-day care", "Skin infection, fever, moderate pain", "moderate"),
+        ("Minor — can wait or self-manage", "Cold sore, rash, UTI", "minor"),
+        ("Child Illness / High Fever", "Unwell child, persistent high temperature", "life"),
+        ("Not Sure / Something Else", "Something else / Not listed above", "minor")
     ]
 
     sel_urg = st.radio("", [ti for ti,_,_ in URGENCY_OPTIONS], label_visibility="collapsed")
