@@ -588,14 +588,6 @@ elif page == "Patient Advice":
         ("Not Sure / Something Else",              "Something else / Not listed above",                "minor",    "#F8FAFC","#64748B"),
     ]
 
-    sel_urg = st.radio("", [ti for ti,_,_ in URGENCY_OPTIONS], label_visibility="collapsed")
-    urgency_type = "minor"
-    for ti, sub, ut in URGENCY_OPTIONS:
-        if ti == sel_urg:
-            urgency_type = ut
-            st.caption(f"_{sub}_")
-            break
-
     occ, status, troll, bis = get_hosp_data(sel_hosp)
     rc, sc, rl = rag_meta(occ)
     pathway, path_c, path_desc = get_pathway(occ, urgency_type)
