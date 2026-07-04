@@ -94,9 +94,6 @@ st.markdown("""
 .resource-desc{font-size:15px;color:#64748B;line-height:1.6;margin-bottom:10px;}
 .resource-link{color:#0D9488;font-size:15px;font-weight:600;text-decoration:none;}
 
-</style>
-""", unsafe_allow_html=True)
-
 /* Contact */
 .contact-card{background:white;border-radius:12px;padding:18px;
               border:1px solid #E2E8F0;margin-bottom:14px;text-align:center;}
