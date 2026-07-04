@@ -657,23 +657,23 @@ elif page == "Patient Advice":
             st.markdown(f"- **{h}** — {rl2}")
 
     # Critical symptoms
-   st.markdown("""
-    <div class="crit-box">
-        <span class="crit-badge">Critical Symptoms — Call 999 Immediately</span>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px">
-            <div class="crit-item"><span class="crit-num">1</span><div><div class="crit-name">Chest pain or chest tightness</div><div class="crit-sub">Especially if crushing, radiating, or associated with sweating or nausea</div></div></div>
-            <div class="crit-item"><span class="crit-num">2</span><div><div class="crit-name">Sudden shortness of breath</div><div class="crit-sub">Could indicate respiratory failure, pulmonary embolism, or cardiac issues</div></div></div>
-            <div class="crit-item"><span class="crit-num">3</span><div><div class="crit-name">Sudden weakness, numbness, or paralysis</div><div class="crit-sub">Especially one-sided — possible stroke</div></div></div>
-            <div class="crit-item"><span class="crit-num">4</span><div><div class="crit-name">Altered level of consciousness</div><div class="crit-sub">Confusion, collapse, fainting, or unresponsiveness</div></div></div>
-            <div class="crit-item"><span class="crit-num">5</span><div><div class="crit-name">Severe allergic reaction</div><div class="crit-sub">Facial/lip/tongue swelling, wheezing, difficulty breathing</div></div></div>
-            <div class="crit-item"><span class="crit-num">6</span><div><div class="crit-name">Uncontrolled bleeding</div><div class="crit-sub">External or suspected internal bleeding</div></div></div>
-            <div class="crit-item"><span class="crit-num">7</span><div><div class="crit-name">Severe abdominal pain</div><div class="crit-sub">Especially with rigidity, fever, or vomiting</div></div></div>
-            <div class="crit-item"><span class="crit-num">8</span><div><div class="crit-name">High fever with signs of infection</div><div class="crit-sub">Fever + confusion, rapid heart rate, low blood pressure (possible sepsis)</div></div></div>
-            <div class="crit-item"><span class="crit-num">9</span><div><div class="crit-name">Persistent seizures or first-time seizure</div><div class="crit-sub">Especially if lasting more than 5 minutes</div></div></div>
-            <div class="crit-item"><span class="crit-num">10</span><div><div class="crit-name">Severe headache of sudden onset</div><div class="crit-sub">Sudden, intense headache unlike any experienced before</div></div></div>
-        </div>
-    </div>
-    """, unsafe_allow_html=True)
+    st.markdown("""
+     <div class="crit-box">
+         <span class="crit-badge">Critical Symptoms — Call 999 Immediately</span>
+         <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px">
+             <div class="crit-item"><span class="crit-num">1</span><div><div class="crit-name">Chest pain or chest tightness</div><div class="crit-sub">Especially if crushing, radiating, or associated with sweating or nausea</div></div></div>
+             <div class="crit-item"><span class="crit-num">2</span><div><div class="crit-name">Sudden shortness of breath</div><div class="crit-sub">Could indicate respiratory failure, pulmonary embolism, or cardiac issues</div></div></div>
+             <div class="crit-item"><span class="crit-num">3</span><div><div class="crit-name">Sudden weakness, numbness, or paralysis</div><div class="crit-sub">Especially one-sided — possible stroke</div></div></div>
+             <div class="crit-item"><span class="crit-num">4</span><div><div class="crit-name">Altered level of consciousness</div><div class="crit-sub">Confusion, collapse, fainting, or unresponsiveness</div></div></div>
+             <div class="crit-item"><span class="crit-num">5</span><div><div class="crit-name">Severe allergic reaction</div><div class="crit-sub">Facial/lip/tongue swelling, wheezing, difficulty breathing</div></div></div>
+             <div class="crit-item"><span class="crit-num">6</span><div><div class="crit-name">Uncontrolled bleeding</div><div class="crit-sub">External or suspected internal bleeding</div></div></div>
+             <div class="crit-item"><span class="crit-num">7</span><div><div class="crit-name">Severe abdominal pain</div><div class="crit-sub">Especially with rigidity, fever, or vomiting</div></div></div>
+             <div class="crit-item"><span class="crit-num">8</span><div><div class="crit-name">High fever with signs of infection</div><div class="crit-sub">Fever + confusion, rapid heart rate, low blood pressure (possible sepsis)</div></div></div>
+             <div class="crit-item"><span class="crit-num">9</span><div><div class="crit-name">Persistent seizures or first-time seizure</div><div class="crit-sub">Especially if lasting more than 5 minutes</div></div></div>
+             <div class="crit-item"><span class="crit-num">10</span><div><div class="crit-name">Severe headache of sudden onset</div><div class="crit-sub">Sudden, intense headache unlike any experienced before</div></div></div>
+         </div>
+     </div>
+     """, unsafe_allow_html=True)
 
     st.divider()
     col_sv1, col_sv2 = st.columns(2)
