@@ -1194,22 +1194,22 @@ elif page == "Contact":
     ]
 
     symptoms_html = ""
-        for num, title, desc in symptoms:
-            symptoms_html += (
-                "<div style='background:white;border:1px solid #FECDD3;border-radius:10px;"
-                "padding:14px;display:flex;gap:12px;align-items:flex-start'>"
-                "<div style='background:#FFF1F2;width:36px;height:36px;border-radius:8px;"
-                "display:flex;align-items:center;justify-content:center;"
-                "font-size:14px;font-weight:700;color:#DC2626;flex-shrink:0'>" + str(num) + "</div>"
-                "<div><div style='font-size:13px;font-weight:600;color:#0D2137;margin-bottom:3px'>" + title + "</div>"
-                "<div style='font-size:12px;color:#64748B;line-height:1.5'>" + desc + "</div></div>"
-                "</div>"
+    for num, title, desc in symptoms:
+        symptoms_html += (
+             "<div style='background:white;border:1px solid #FECDD3;border-radius:10px;"
+            "padding:14px;display:flex;gap:12px;align-items:flex-start'>"
+            "<div style='background:#FFF1F2;width:36px;height:36px;border-radius:8px;"
+            "display:flex;align-items:center;justify-content:center;"
+            "font-size:14px;font-weight:700;color:#DC2626;flex-shrink:0'>" + str(num) + "</div>"
+            "<div><div style='font-size:13px;font-weight:600;color:#0D2137;margin-bottom:3px'>" + title + "</div>"
+            "<div style='font-size:12px;color:#64748B;line-height:1.5'>" + desc + "</div></div>"
+            "</div>"
             )
-        st.markdown(
-            "<div style='display:grid;grid-template-columns:1fr 1fr;gap:10px'>"
-            + symptoms_html + "</div></div></div>",
-            unsafe_allow_html=True
-        )
+    st.markdown(
+        "<div style='display:grid;grid-template-columns:1fr 1fr;gap:10px'>"
+        + symptoms_html + "</div></div></div>",
+        unsafe_allow_html=True
+    )
 
     # Call 999 banner
     st.markdown("""
