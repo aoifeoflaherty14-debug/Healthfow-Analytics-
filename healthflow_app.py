@@ -589,6 +589,28 @@ elif page == "Patient Advice":
     ]
     if "sel_urgency" not in st.session_state:
         st.session_state.sel_urgency = URGENCY_OPTIONS[0][0]
+
+    urg_cols = st.columns(2)
+    for idx, (ti, sub, ut, bg, bc) in enumerate(URGENCY_OPTIONS):
+        is_sel = (st.session_state.sel_urgency == ti)
+        dot = "🔴" if ut == "life" else ("🟡" if ut == "moderate" else "🟢")
+        card_bg = bg if is_sel else "white"
+        card_border = bc if is_sel else "#E2E8F0"
+        card_weight = "700" if is_sel else "500"
+        with urg_cols[idx % 2]:
+            st.markdown(
+                "<div style='background:" + card_bg + ";border:2px solid " + card_border + ";"
+                "border-radius:10px;padding:14px 16px;margin-bottom:4px'>"
+                "<div style='font-size:15px;font-weight:" + card_weight + ";color:#0D2137;margin-bottom:3px'>"
+                + dot + " " + ti + "</div>"
+                "<div style='font-size:13px;color:#64748B'>" + sub + "</div>"
+                "</div>",
+                unsafe_allow_html=True
+            )
+            if st.button("Select", key="urg_" + str(idx), use_container_width=True):
+                st.session_state.sel_urgency = ti
+                st.rerun()
+        
     sel_urg = st.session_state.sel_urgency
     urgency_type = "minor"
     sel_bc  = "#0D9488"
