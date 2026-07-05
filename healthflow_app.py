@@ -346,20 +346,22 @@ if not st.session_state.onboarded:
     """, unsafe_allow_html=True)
 
     st.markdown("""
-    <div style="text-align:center;font-size:17px;font-weight:700;color:#0D2137;margin:1.5rem 0 4px 0">
+    <div style="text-align:center;font-size:24px;font-weight:700;color:#0D2137;margin:1.5rem 0 4px 0">
         Tell us about yourself to get started
     </div>
-    <div style="text-align:center;font-size:13px;color:#64748B;margin-bottom:1.2rem">
+    <div style="text-align:center;font-size:18px;color:#64748B;margin-bottom:1.2rem">
         We will personalise your experience based on your location and age
     </div>
     """, unsafe_allow_html=True)
 
     col1, col2, col3 = st.columns([0.5, 3, 0.5])
     with col2:
-        county_land = st.selectbox("Which county are you in?", list(HOSPITAL_MAP.keys()))
+        st.markdown("<div style='font-size:20px;font-weight:600;color:#0D2137;margin-bottom:6px'>Which county are you in?</div>", unsafe_allow_html=True)
+        county_land = st.selectbox("", list(HOSPITAL_MAP.keys()), label_visibility="collapsed")
         age_opts = ["Under 5 — Infant / Toddler","5–15 — Child",
                     "16–25 — Young Adult","26–64 — Adult","65+ — Senior"]
-        age_land = st.selectbox("What is the patient's age group?", age_opts, index=3)
+        st.markdown("<div style='font-size:20px;font-weight:600;color:#0D2137;margin-bottom:6px'>What is the patient's age group?</div>", unsafe_allow_html=True)
+        age_land = st.selectbox("", age_opts, index=3, label_visibility="collapsed")
         st.markdown("<div style='height:6px'></div>", unsafe_allow_html=True)
         if st.button("Find My Care", type="primary", use_container_width=True):
             st.session_state.onboarded      = True
