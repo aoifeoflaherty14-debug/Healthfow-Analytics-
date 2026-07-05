@@ -1047,9 +1047,7 @@ elif page == "Resources":
     st.markdown('<div class="sec-title">Digital Resources</div>', unsafe_allow_html=True)
     dr_col1, dr_col2, dr_col3 = st.columns(3)
     digital = [
-        ("HSE App",       "Access health information and services on the go",   "Download", "https://www.hse.ie/eng/", "#0D9488"),
-        ("MyGP App",      "Book appointments and order prescriptions online",    "Download", "https://www.mygp.com/",   "#2563EB"),
-        ("Patient Portal","Access test results and manage appointments",         "Login",    "https://www.hse.ie/eng/", "#7C3AED"),
+        ("HSE Health App",       "Access health information and services on the go",   "Download", "https://www.hse.ie/eng/", "#0D9488"),
     ]
     for col, (title, desc, cta, link, colour) in zip([dr_col1, dr_col2, dr_col3], digital):
         with col:
