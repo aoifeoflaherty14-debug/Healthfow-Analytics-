@@ -424,9 +424,9 @@ if page == "ED Status":
         <div class="hero-title">Your Hospitals in {sel_county}</div>
         <div class="hero-sub">Showing hospitals for <strong>{sel_age}</strong> patients</div>
         <div>
-            <span class="pill">Normal: {grn_c}</span>
-            <span class="pill">Busy: {amb_c}</span>
-            <span class="pill">Very Busy: {red_c}</span>
+            <span class="pill">🟢 Normal: {grn_c}</span>
+            <span class="pill">🟡 Busy: {amb_c}</span>
+            <span class="pill">🔴 Very Busy: {red_c}</span>
         </div>
     </div>
     """, unsafe_allow_html=True)
