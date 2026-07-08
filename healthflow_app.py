@@ -1289,39 +1289,64 @@ elif page == "Contact":
     """, unsafe_allow_html=True)
 
     # GP / Out of Hours / Minor Injury cards
+    # Geo-based out of hours
+    contact_county = st.session_state.get("landing_county", "")
+    if contact_county in ["Dublin", "Kildare", "Wicklow", "Meath", "Louth"]:
+        ooh_name, ooh_num, ooh_tel, ooh_web = "NowDoc (Dublin & Leinster)", "1850 592 0900", "tel:18505920900", "https://www.nowdoc.ie"
+    elif contact_county in ["Cork", "Kerry"]:
+        ooh_name, ooh_num, ooh_tel, ooh_web = "SouthDoc (Cork & Kerry)", "0818 355 999", "tel:0818355999", "https://www.southdoc.ie"
+    elif contact_county in ["Limerick", "Tipperary", "Clare", "Galway", "Mayo", "Roscommon", "Sligo", "Leitrim"]:
+        ooh_name, ooh_num, ooh_tel, ooh_web = "ShanDoc (Shannon & West)", "1850 777 911", "tel:1850777911", "https://www.shandoc.ie"
+    elif contact_county in ["Donegal", "Cavan", "Monaghan"]:
+        ooh_name, ooh_num, ooh_tel, ooh_web = "NorthDoc (North West)", "0818 000 003", "tel:0818000003", "https://www.northdoc.ie"
+    elif contact_county in ["Waterford", "Wexford", "Kilkenny", "Carlow"]:
+        ooh_name, ooh_num, ooh_tel, ooh_web = "Caredoc (South East)", "0818 300 365", "tel:0818300365", "https://www.caredoc.ie"
+    else:
+        ooh_name, ooh_num, ooh_tel, ooh_web = "Out-of-Hours GP", "1850 777 911", "tel:1850777911", "https://www.hse.ie/eng/services/list/3/primarycare/outofhours.html"
+
     col1, col2, col3 = st.columns(3)
     with col1:
-        st.markdown("""
-        <div style="background:#EFF6FF;border:1px solid #BFDBFE;border-radius:12px;padding:20px;height:100%">
-            <div style="font-size:15px;font-weight:700;color:#1D4ED8;margin-bottom:12px">GP Services</div>
-            <div style="font-size:13px;color:#1E40AF;line-height:1.6;margin-bottom:16px">
-                For non-emergency medical advice, contact your GP during office hours.
-            </div>
-            <div style="font-size:12px;color:#2563EB;font-weight:500">Mon–Fri: 9:00 AM – 5:00 PM</div>
-        </div>""", unsafe_allow_html=True)
+        st.markdown(
+            "<div style='background:#EFF6FF;border:1px solid #BFDBFE;border-radius:12px;padding:20px;height:100%'>"
+            "<div style='font-size:15px;font-weight:700;color:#1D4ED8;margin-bottom:12px'>GP Services</div>"
+            "<div style='font-size:13px;color:#1E40AF;line-height:1.6;margin-bottom:16px'>"
+            "For non-emergency medical advice, contact your GP during office hours.</div>"
+            "<div style='font-size:12px;color:#2563EB;font-weight:500;margin-bottom:12px'>Mon–Fri: 9:00 AM – 5:00 PM</div>"
+            "<a href='https://www.google.com/maps/search/GP+doctor+near+me' target='_blank'"
+            " style='display:block;background:#1D4ED8;color:white;text-align:center;"
+            "padding:10px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none'>"
+            "Find a GP Near Me</a>"
+            "</div>",
+            unsafe_allow_html=True
+        )
     with col2:
-        st.markdown("""
-        <div style="background:#F0FDFA;border:1px solid #99F6E4;border-radius:12px;padding:20px;height:100%">
-            <div style="font-size:15px;font-weight:700;color:#0D9488;margin-bottom:12px">Out of Hours</div>
-            <div style="font-size:13px;color:#0F766E;line-height:1.6;margin-bottom:16px">
-                ShanDoc provides out-of-hours GP services when your practice is closed.
-            </div>
-            <a href="tel:1850777911" style="font-size:12px;color:#0D9488;font-weight:600;text-decoration:none">
-                Call: 1850 777 911
-            </a>
-        </div>""", unsafe_allow_html=True)
+        st.markdown(
+            "<div style='background:#F0FDFA;border:1px solid #99F6E4;border-radius:12px;padding:20px;height:100%'>"
+            "<div style='font-size:15px;font-weight:700;color:#0D9488;margin-bottom:12px'>" + ooh_name + "</div>"
+            "<div style='font-size:13px;color:#0F766E;line-height:1.6;margin-bottom:16px'>"
+            "When your GP surgery is closed, out-of-hours services provide urgent medical care.</div>"
+            "<a href='" + ooh_tel + "' style='display:block;font-size:16px;font-weight:700;"
+            "color:#0D9488;text-decoration:none;margin-bottom:10px'>📞 " + ooh_num + "</a>"
+            "<a href='" + ooh_web + "' target='_blank'"
+            " style='display:block;background:#0D9488;color:white;text-align:center;"
+            "padding:10px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none'>"
+            "Visit Website</a>"
+            "</div>",
+            unsafe_allow_html=True
+        )
     with col3:
-        st.markdown("""
-        <div style="background:#FAF5FF;border:1px solid #E9D5FF;border-radius:12px;padding:20px;height:100%">
-            <div style="font-size:15px;font-weight:700;color:#7C3AED;margin-bottom:12px">Minor Injury Units</div>
-            <div style="font-size:13px;color:#6D28D9;line-height:1.6;margin-bottom:16px">
-                For minor injuries like sprains, cuts, and minor burns without appointment.
-            </div>
-            <a href="https://www.hse.ie" target="_blank"
-               style="font-size:12px;color:#7C3AED;font-weight:600;text-decoration:none">
-                Check local unit opening hours
-            </a>
-        </div>""", unsafe_allow_html=True)
+        st.markdown(
+            "<div style='background:#FAF5FF;border:1px solid #E9D5FF;border-radius:12px;padding:20px;height:100%'>"
+            "<div style='font-size:15px;font-weight:700;color:#7C3AED;margin-bottom:12px'>Minor Injury Units</div>"
+            "<div style='font-size:13px;color:#6D28D9;line-height:1.6;margin-bottom:16px'>"
+            "For minor injuries like sprains, cuts, and minor burns without appointment.</div>"
+            "<a href='https://www.google.com/maps/search/minor+injury+unit+near+me' target='_blank'"
+            " style='display:block;background:#7C3AED;color:white;text-align:center;"
+            "padding:10px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none'>"
+            "Find Nearest MIU</a>"
+            "</div>",
+            unsafe_allow_html=True
+        )
 
     # Footer
     st.markdown("""
