@@ -1370,7 +1370,7 @@ elif page == "Contact":
                 <div style="font-size:15px;font-weight:700;color:white;margin-bottom:10px">Emergency Contacts</div>
                 <div style="font-size:13px;color:#94A3B8;line-height:2">
                     <div><strong style="color:white">Emergency:</strong> 999</div>
-                    <div><strong style="color:white">Out of Hours ({ooh_name}):</strong> {ooh_num}</div>
+                    <div><strong style='color:white'>Out of Hours (" + ooh_name + "):</strong> " + ooh_num + "</div>
                     <div><strong style="color:white">HSE Live:</strong> 1850 24 1850</div>
                 </div>
             </div>
