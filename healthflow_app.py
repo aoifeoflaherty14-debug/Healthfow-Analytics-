@@ -790,31 +790,34 @@ elif page == "Resources":
 
     # Out of hours mapping
     if res_county in ["Dublin", "Kildare", "Wicklow", "Meath", "Louth"]:
-        ooh_services = [("NowDoc (Dublin & Leinster)", "1850 592 0900", "tel:18505920900")]
+        ooh_services = [("NowDoc (Dublin & Leinster)", "1850 592 0900", "tel:18505920900", "https://www.nowdoc.ie")]
     elif res_county in ["Cork", "Kerry"]:
-        ooh_services = [("SouthDoc (Cork & Kerry)", "0818 355 999", "tel:0818355999")]
+        ooh_services = [("SouthDoc (Cork & Kerry)", "0818 355 999", "tel:0818355999", "https://www.southdoc.ie")]
     elif res_county in ["Limerick", "Tipperary", "Clare", "Galway", "Mayo", "Roscommon", "Sligo", "Leitrim"]:
-        ooh_services = [("ShanDoc (Shannon & West)", "1850 777 911", "tel:1850777911")]
+        ooh_services = [("ShanDoc (Shannon & West)", "1850 777 911", "tel:1850777911", "https://www.shandoc.ie")]
     elif res_county in ["Donegal", "Cavan", "Monaghan"]:
-        ooh_services = [("NorthDoc (North West)", "0818 000 003", "tel:0818000003")]
-    elif res_county in ["Waterford", "Wexford", "Kilkenny", "Carlow"]:
-        ooh_services = [("Caredoc (South East)", "0818 300 365", "tel:0818300365")]
+        ooh_services = [("NorthDoc (North West)", "0818 000 003", "tel:0818000003", "https://www.northdoc.ie")]
+    elif res_county in ["Waterford", "Wexford", "Kilkenny", "Carlow", "Tipperary"]:
+        ooh_services = [("Caredoc (South East)", "0818 300 365", "tel:0818300365", "https://www.caredoc.ie")]
+    elif res_county in ["Longford", "Westmeath", "Offaly", "Laois", "Portlaoise", "Tullamore", "Mullingar"]:
+        ooh_services = [("Midlands Doc (Midlands)", "0818 123 456", "tel:0818123456", "https://www.hse.ie/eng/services/list/3/primarycare/outofhours.html")]
     else:
         ooh_services = [
-            ("NowDoc (Dublin)", "1850 592 0900", "tel:18505920900"),
-            ("SouthDoc (Cork & Kerry)", "0818 355 999", "tel:0818355999"),
-            ("ShanDoc (Shannon & West)", "1850 777 911", "tel:1850777911"),
+            ("NowDoc (Dublin)", "1850 592 0900", "tel:18505920900", "https://www.nowdoc.ie"),
+            ("SouthDoc (Cork & Kerry)", "0818 355 999", "tel:0818355999", "https://www.southdoc.ie"),
+            ("ShanDoc (Shannon & West)", "1850 777 911", "tel:1850777911", "https://www.shandoc.ie"),
+            ("Caredoc (South East)", "0818 300 365", "tel:0818300365", "https://www.caredoc.ie"),
         ]
 
     ooh_html = ""
-    for name, number, link in ooh_services:
+    for name, number, tel_link, web_link in ooh_services:
         ooh_html += (
             "<div style='background:#F8FAFC;border-radius:8px;padding:14px;margin-bottom:8px'>"
-            "<div style='font-size:14px;color:#64748B;margin-bottom:4px'>" + name + "</div>"
-            "<a href='" + link + "' style='font-size:16px;font-weight:700;color:#0D9488;text-decoration:none'>" + number + "</a>"
+            "<div style='font-size:14px;color:#64748B;margin-bottom:6px'>" + name + "</div>"
+            "<a href='" + tel_link + "' style='font-size:16px;font-weight:700;color:#0D9488;text-decoration:none;display:block;margin-bottom:6px'>" + number + "</a>"
+            "<a href='" + web_link + "' target='_blank' style='font-size:13px;color:#2563EB;text-decoration:none;font-weight:500'>Visit website</a>"
             "</div>"
         )
-
     col1, col2 = st.columns(2)
     with col1:
         st.markdown(
