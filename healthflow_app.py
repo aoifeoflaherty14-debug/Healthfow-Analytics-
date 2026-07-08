@@ -1348,37 +1348,32 @@ elif page == "Contact":
         )
 
     # Footer
-    st.markdown("""
-    <div style="background:#0D2137;border-radius:12px;padding:28px 24px;margin-top:24px">
-        <div style="display:grid;grid-template-columns:2fr 1fr 1fr;gap:2rem;margin-bottom:20px">
-            <div>
-                <div style="font-size:15px;font-weight:700;color:white;margin-bottom:10px">HSE Emergency Services</div>
-                <div style="font-size:13px;color:#94A3B8;line-height:1.6">
-                    Providing real-time emergency department information to help you make
-                    informed decisions about your healthcare.
-                </div>
-            </div>
-            <div>
-                <div style="font-size:15px;font-weight:700;color:white;margin-bottom:10px">Quick Links</div>
-                <div style="font-size:13px;color:#64748B;line-height:2">
-                    <a href="#" style="color:#64748B;text-decoration:none;display:block">Find Your Nearest ED</a>
-                    <a href="#" style="color:#64748B;text-decoration:none;display:block">GP Services</a>
-                    <a href="https://www.hse.ie" style="color:#64748B;text-decoration:none;display:block">Health Information</a>
-                </div>
-            </div>
-            <div>
-                <div style="font-size:15px;font-weight:700;color:white;margin-bottom:10px">Emergency Contacts</div>
-                <div style="font-size:13px;color:#94A3B8;line-height:2">
-                    <div><strong style="color:white">Emergency:</strong> 999</div>
-                    <div><strong style='color:white'>Out of Hours (" + ooh_name + "):</strong> " + ooh_num + "</div>
-                    <div><strong style="color:white">HSE Live:</strong> 1850 24 1850</div>
-                </div>
-            </div>
-        </div>
-        <div style="border-top:1px solid #1e3a5f;padding-top:16px;text-align:center;
-                    font-size:12px;color:#64748B">
-            HealthFlow &nbsp;|&nbsp; Group 2 &nbsp;|&nbsp; UCC IS6611 &nbsp;|&nbsp; 2026 &nbsp;|&nbsp;
-            This platform is for informational purposes only and does not replace professional medical advice.
-        </div>
-    </div>
-    """, unsafe_allow_html=True)
+    # Footer
+    st.markdown(
+        "<div style='background:#0D2137;border-radius:12px;padding:28px 24px;margin-top:24px'>"
+        "<div style='display:grid;grid-template-columns:2fr 1fr 1fr;gap:2rem;margin-bottom:20px'>"
+        "<div>"
+        "<div style='font-size:15px;font-weight:700;color:white;margin-bottom:10px'>HSE Emergency Services</div>"
+        "<div style='font-size:13px;color:#94A3B8;line-height:1.6'>"
+        "Providing real-time emergency department information to help you make informed decisions about your healthcare."
+        "</div></div>"
+        "<div>"
+        "<div style='font-size:15px;font-weight:700;color:white;margin-bottom:10px'>Quick Links</div>"
+        "<div style='font-size:13px;color:#64748B;line-height:2'>"
+        "<a href='#' style='color:#64748B;text-decoration:none;display:block'>Find Your Nearest ED</a>"
+        "<a href='#' style='color:#64748B;text-decoration:none;display:block'>GP Services</a>"
+        "<a href='https://www.hse.ie' style='color:#64748B;text-decoration:none;display:block'>Health Information</a>"
+        "</div></div>"
+        "<div>"
+        "<div style='font-size:15px;font-weight:700;color:white;margin-bottom:10px'>Emergency Contacts</div>"
+        "<div style='font-size:13px;color:#94A3B8;line-height:2'>"
+        "<div><strong style='color:white'>Emergency:</strong> 999</div>"
+        "<div><strong style='color:white'>Out of Hours (" + ooh_name + "):</strong> " + ooh_num + "</div>"
+        "<div><strong style='color:white'>HSE Live:</strong> 1850 24 1850</div>"
+        "</div></div></div>"
+        "<div style='border-top:1px solid #1e3a5f;padding-top:16px;text-align:center;font-size:12px;color:#64748B'>"
+        "HealthFlow &nbsp;|&nbsp; Group 2 &nbsp;|&nbsp; UCC IS6611 &nbsp;|&nbsp; 2026 &nbsp;|&nbsp;"
+        "This platform is for informational purposes only and does not replace professional medical advice."
+        "</div></div>",
+        unsafe_allow_html=True
+    )
